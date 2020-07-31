@@ -5,9 +5,12 @@ import Navigation from "../navigation/Navigation.component";
 
 const Header = () => {
   return (
-    <div className="header-container">
-      <Navigation />
-    </div>
+    <header>
+      <div className="header-container">
+        <div className="logo">Gyross</div>
+        <Navigation />
+      </div>
+    </header>
   );
 };
 

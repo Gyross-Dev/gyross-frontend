@@ -1,5 +1,6 @@
 footer {
   background: #1f1f22;
+  padding: 5px 10px;
 }
 
 footer .logo {
@@ -7,12 +8,14 @@ footer .logo {
   font-family: "Monoton", cursive;
   color: #ffffff;
   font-size: 40px;
-  padding: 11px 0px;
+  padding: 5px 0px 25px 0;
+  margin-bottom: 5px;
   border-bottom: 1px solid #4d4d4d;
 }
 @media screen and (max-width: 600px) {
   footer .logo {
     font-size: 20px;
+    padding: 5px 0px 20px 0;
   }
   h2 {
     font-size: 15px;
@@ -24,6 +27,7 @@ footer .logo {
 footer .wrapper {
   display: flex;
   color: #828282;
+  padding: 5px 10px;
 }
 @media screen and (max-width: 800px) {
   footer .wrapper {
@@ -37,6 +41,10 @@ footer .wrapper {
 footer .left,
 footer .right {
   flex: 1;
+  h2 {
+    margin-bottom: 15px;
+    font-size: 17px;
+  }
 }
 
 footer .business_nfo {
