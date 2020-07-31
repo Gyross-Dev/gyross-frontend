@@ -205,3 +205,20 @@ table {
 * {
   box-sizing: border-box;
 }
+
+.btn {
+  background-color: rgb(28, 28, 62);
+  color: aqua;
+  outline: none;
+  min-height: 30px;
+  padding: 10px;
+  border: 1px solid rgb(34, 2, 2);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+.btn:hover {
+  color: rgb(28, 28, 62);
+  background-color: rgb(12, 131, 131);
+}
