@@ -1,16 +1,39 @@
 .body-container {
   min-height: 70vh;
-  background-color: rgb(179, 72, 85);
+  background-color: rgb(180, 174, 174);
   color: black;
-  .title {
-    text-align: center;
-    font-family: "Monoton", cursive;
-    color: #ffffff;
-    font-size: 40px;
-    padding: 11px 0px;
-    border-bottom: 1px solid #4d4d4d;
-  }
-  .paragraph {
-    font-size: 20px;
+  .top-first {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    img {
+      width: 60%;
+      height: 500px;
+      margin: 20px;
+      text-align: center;
+      @media screen and (max-width: 800px) {
+        width: 90%;
+        height: 600px;
+      }
+      @media screen and (max-width: 600px) {
+        width: 90%;
+        height: 400px;
+      }
+    }
+    .title {
+      text-align: center;
+      font-family: "Monoton", cursive;
+      color: #1c0202;
+      font-size: 40px;
+      padding: 11px 0px;
+      border-bottom: 1px solid #4d4d4d;
+    }
+    .paragraph {
+      font-size: 20px;
+    }
   }
 }
