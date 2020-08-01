@@ -1,14 +1,13 @@
 import React from "react";
 import "./Layout.scss";
 import Header from "../components/header/Header.component";
-import Container from "./container/Container";
 import Footer from "../components/footer/Footer.component";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div>
       <Header />
-      <Container />
+      <div>{props.children}</div>
       <Footer />
     </div>
   );
