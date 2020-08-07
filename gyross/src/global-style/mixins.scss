@@ -1,0 +1,36 @@
+:root {
+  --bg_color: white;
+  --bg-header: rgb(79, 75, 121);
+  --btn-nav-bg: rgb(167, 81, 163);
+  --btn-nav-color: rgb(175, 208, 218);
+  --btn-bg-color: rgb(96, 175, 201);
+  --btn-bg-color-hover: rgb(197, 126, 192);
+  --btn-bg-color-hover-color: rgb(59, 25, 87);
+  --bg-footer: #333447;
+}
+
+@use "sass:map";
+
+$theme-colors: (
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+);
+
+// .alert {
+//   // Instead of $theme-color-#{warning}
+//   background-color: map.get($theme-colors, "warning");
+// }
+
+@mixin button-style(
+  $bg-color: $btn-bg-color,
+  $bg-color-hover: $btn-bg-color-hover
+) {
+  background-color: $bg-color;
+  // more styles
+
+  &:hover {
+    background-color: $bg-color-hover;
+    // more styles
+  }
+}
