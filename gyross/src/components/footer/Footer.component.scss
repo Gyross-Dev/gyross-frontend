@@ -1,5 +1,5 @@
 footer {
-  background: #1f1f22;
+  background: var(--bg-footer);
   padding: 5px 10px;
 }
 
@@ -10,7 +10,7 @@ footer .logo {
   font-size: 40px;
   padding: 5px 0px 25px 0;
   margin-bottom: 5px;
-  border-bottom: 1px solid #4d4d4d;
+  border-bottom: 1px solid #c2c5df;
 }
 @media screen and (max-width: 600px) {
   footer .logo {
@@ -26,7 +26,7 @@ footer .logo {
 }
 footer .wrapper {
   display: flex;
-  color: #828282;
+  color: #c1b3d3;
   padding: 5px 10px;
 }
 @media screen and (max-width: 800px) {
