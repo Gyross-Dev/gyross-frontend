@@ -8,7 +8,7 @@ const Body = () => {
         <img
           className="cart-pic"
           alt="gyro cart"
-          src="https://images.unsplash.com/photo-1527832512313-0f39d6eff12f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+          src="https://images.unsplash.com/photo-1530649325239-1c2ebf1e3f07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
         />
         <div>
           <p className="paragraph">
