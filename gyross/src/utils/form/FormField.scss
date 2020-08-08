@@ -6,12 +6,12 @@ $main-color: black;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 10px;
-  margin: 0 0 -20px 10px;
+  margin: 0 0 -12px 10px;
+  padding: 0 3px;
   background-color: white;
   z-index: 20;
   @media screen and (max-width: 850px) {
     font-size: 10px;
-    letter-spacing: -1px;
   }
 }
 
@@ -19,6 +19,10 @@ $main-color: black;
   color: #f44336;
   display: block;
   font-size: 12px;
+  @media screen and (max-width: 600px) {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
 }
 
 textarea {
@@ -70,13 +74,13 @@ select {
     font-size: 15px;
     font-weight: normal;
     pointer-events: none;
-    @media screen and (max-width: 500px) {
-      font-size: 10px;
-      letter-spacing: 0px;
-    }
     @media screen and (max-width: 850px) {
       font-size: 11px;
-      letter-spacing: -1px;
+      letter-spacing: 1px;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 10px;
     }
 
     &.shrink {
