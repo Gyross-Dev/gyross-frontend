@@ -12,8 +12,8 @@ function App() {
     <Layout>
       <Switch>
         <Route path="/" exact component={Container} />
-        <Route path="/login" exact component={VendorLogin} />
-        <Route path="/signup" exact component={VendorSignup} />
+        <Route path="/vendor-login" exact component={VendorLogin} />
+        <Route path="/vendor-signup" exact component={VendorSignup} />
         <Route path="/login_Signup" exact component={LoginSignup} />
       </Switch>
     </Layout>
