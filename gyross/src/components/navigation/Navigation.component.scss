@@ -3,21 +3,84 @@
   width: 100%;
   display: flex;
   align-items: center;
-  ul {
+  justify-content: space-around;
+
+  nav {
     width: 100%;
     display: flex;
     align-items: center;
     list-style: none;
     justify-content: flex-end;
-    li {
+    margin: 0;
+    padding: 10px 0;
+    .nav-item {
+      flex: 1;
+    }
+    .dropdown {
+      position: relative;
+      @media screen and (max-width: 500px) {
+        margin: auto;
+        padding: 0;
+      }
+      #dropdown-home {
+        padding: 4px 15px;
+        @media screen and (max-width: 500px) {
+          padding: 6px;
+        }
+      }
+      .dropdown-content {
+        display: none;
+        padding-top: 200px;
+        box-shadow: 0px 8px 16px 0px grey;
+        position: absolute;
+        min-width: 150px;
+        height: auto;
+        right: 0;
+        .dropdown-item {
+          text-transform: uppercase;
+          font-size: 12px;
+          margin: 10px;
+          padding: 5px 0 5px 15px;
+          text-decoration: none;
+          display: block;
+          text-align: start;
+          background-color: whitesmoke;
+          color: rgb(110, 71, 71);
+          border-radius: 0;
+          @media screen and (max-width: 500px) {
+            margin: 5px;
+            padding: 2px;
+            min-width: 100px;
+          }
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+    .dropdown:hover {
+      .dropdown-content {
+        display: block;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 2px 8px;
+        @media screen and (max-width: 500px) {
+          margin: 5px;
+          padding: 0;
+        }
+      }
+    }
+
+    a {
       padding: 5px 15px;
       margin: 0 5px;
+      border: 1px solid grey;
       cursor: pointer;
       background-color: var(--btn-nav-bg);
       color: var(--btn-nav-color);
       border-radius: 5px;
       @media screen and (max-width: 600px) {
-        font-size: 10px;
+        font-size: 12px;
         padding: 5px 10px;
       }
       &:hover {
