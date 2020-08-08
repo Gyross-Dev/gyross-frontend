@@ -8,7 +8,9 @@ const Header = () => {
     <header>
       <div className="header-container">
         <div className="logo">Gyross</div>
-        <Navigation />
+        <div className="navBar">
+          <Navigation />
+        </div>
       </div>
     </header>
   );
