@@ -2,65 +2,66 @@ import React from "react";
 import "./Navigation.component.scss";
 import { Link } from "react-router-dom";
 
-class Navigation extends React.Component {
-  state = {
-    showMenu: false,
-  };
-  showMenu = (e) => {
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener("click", this.closeMenu);
-    });
-  };
-  closeMenu = (event) => {
-    if (!this.dropdownMenu.contains(event.target)) {
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener("click", this.closeMenu);
-      });
-    }
-  };
-  render() {
-    return (
-      <div className="navigation-container">
-        <nav>
-          <div className="nav-item">
-            <Link to="/">Home </Link>
-          </div>
-          <div className="nav-item">
-            <Link to="/About">About </Link>
-          </div>
-          <div className="nav-item dropdown">
-            <div></div>
-            <Link id="dropdown-home" to="/">
-              Profile
-            </Link>
+const Navigation = () => {
+  return (
+    <div className="navigation-container">
+      <nav>
+        <div className="nav-item">
+          <Link to="/">Home </Link>
+        </div>
+        <div className="nav-item">
+          <Link to="/About">About </Link>
+        </div>
+        <div class="dropdown show">
+          <Link
+            className="nav-item dropdown-toggle"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Sign in
+          </Link>
 
-            <div className="dropdown-content" to="/login">
-              <Link className="dropdown-item" to="/vendor-login">
-                Vendor
-              </Link>
-              <Link className="dropdown-item" to="/vendor-login">
-                Buyer
-              </Link>
-            </div>
-          </div>
-          <div className="nav-item dropdown">
-            <Link id="dropdown-home" to="/">
-              Signup
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownMenuLink"
+          >
+            <Link className="dropdown-item" to="/vendor-login">
+              Vendor
             </Link>
-
-            <div className="dropdown-content" to="/login">
-              <Link className="dropdown-item" to="/vendor-signup">
-                vendor
-              </Link>
-              <Link className="dropdown-item" to="/vendor-signup">
-                Buyer
-              </Link>
-            </div>
+            <Link className="dropdown-item" to="/buyer-login">
+              Buyer
+            </Link>
           </div>
-        </nav>
-      </div>
-    );
-  }
-}
+        </div>
+        <div class="dropdown show">
+          <Link
+            className="nav-item dropdown-toggle"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Sign up
+          </Link>
+
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownMenuLink"
+          >
+            <Link className="dropdown-item" to="/vendor-signup">
+              Vendor
+            </Link>
+            <Link className="dropdown-item" to="/buyer-signup">
+              Buyer
+            </Link>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+};
 
 export default Navigation;
