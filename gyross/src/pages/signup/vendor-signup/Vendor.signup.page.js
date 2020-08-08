@@ -126,7 +126,7 @@ class Signup extends Component {
     return (
       <div className="signup-vendor-container">
         <div className="container-fields">
-          <h1 className="vendor-title">Vendor Login</h1>
+          <h1 className="vendor-title">Vendor Registration</h1>
           <form>
             <h2>Personal information</h2>
             <div className="form_items">
