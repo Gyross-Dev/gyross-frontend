@@ -2,9 +2,14 @@ import React from "react";
 import FormButton from "../utils/buttons/FormButtons";
 import CustomCarousel from "../utils/carousel/Carousel";
 import "./Container.scss";
-
+import Image from "../assets/vendor/shah_halal_comp.jpg";
 const Body = () => {
   const imageArr = [
+    {
+      title: "Shah Halal",
+      src: Image,
+      description: "Heart of Ozone Park Halal food vendor",
+    },
     {
       title: "Foodcart",
       src:
@@ -21,7 +26,7 @@ const Body = () => {
       title: "Foodcart",
       src:
         "https://images.unsplash.com/photo-1471110338536-858caa3dbe45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-      description: "Can't be better food out there in cheap price",
+      description: "Can't be better",
     },
   ];
   return (
