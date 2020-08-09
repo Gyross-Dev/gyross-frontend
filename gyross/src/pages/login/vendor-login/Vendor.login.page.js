@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import { auth, GoogleLogin } from "../../../firebase/firebase";
+import { GoogleLogin } from "../../../firebase/firebase";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
