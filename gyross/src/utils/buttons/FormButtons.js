@@ -2,9 +2,11 @@ import React from "react";
 
 import "./FormButton.style.scss";
 
-const FormButton = ({ children, inverted, ...allprops }) => (
+const FormButton = ({ children, isGoogleSignIn, inverted, ...allprops }) => (
   <button
-    className={`${inverted ? "inverted" : ""}  custom-button`}
+    className={`${inverted ? "inverted" : ""} ${
+      isGoogleSignIn ? "google-sign-in" : ""
+    } custom-button`}
     {...allprops}
   >
     {children}
