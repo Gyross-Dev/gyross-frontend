@@ -3,7 +3,7 @@ import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Customer.login.page.scss";
 
-import { auth, GoogleLogin } from "../../../firebase/firebase";
+import { GoogleLogin } from "../../../firebase/firebase";
 import { update, isFormValid } from "../../../utils/form/FormActions";
 import { withRouter } from "react-router-dom";
 
