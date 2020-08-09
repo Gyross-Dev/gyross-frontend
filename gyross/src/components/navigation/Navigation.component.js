@@ -9,9 +9,9 @@ const Navigation = () => {
         <div className="nav-item">
           <Link to="/">Home </Link>
         </div>
-        <div className="nav-item">
+        {/* <div className="nav-item">
           <Link to="/About">About </Link>
-        </div>
+        </div> */}
         <div class="dropdown show">
           <Link
             className="nav-item dropdown-toggle"

@@ -1,12 +1,14 @@
 :root {
   --bg_color: white;
-  --bg-header: rgb(59, 56, 97);
-  --btn-nav-bg: whitesmoke;
-  --btn-nav-color: rgb(110, 71, 71);
+  --bg-header: #59405c;
+  --btn-nav-bg: #cffffe;
+  --btn-nav-color: #322f3d;
   --btn-bg-color: rgb(96, 175, 201);
-  --btn-bg-color-hover: rgb(219, 211, 211);
-  --btn-bg-color-hover-color: rgb(59, 25, 87);
-  --bg-footer: #333447;
+  --btn-bg-color-hover: #322f3d;
+  --btn-bg-color-hover-border: #cffffe;
+  --bg-footer: #322f3d;
+
+  --warning: #f44336;
 }
 
 @use "sass:map";

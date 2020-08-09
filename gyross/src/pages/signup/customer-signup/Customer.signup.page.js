@@ -161,7 +161,7 @@ class Signup extends Component {
             </div>
             <div>
               {this.state.formError ? (
-                <div className="error_label">Please check your data</div>
+                <div className="submit_error_label">Please check your data</div>
               ) : null}
               <FormButton onClick={(event) => this.submitForm(event)}>
                 Create an account
