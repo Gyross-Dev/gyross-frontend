@@ -1,4 +1,5 @@
 import React from "react";
+import FormButton from "../utils/buttons/FormButtons";
 import "./Container.scss";
 
 const Body = () => {
@@ -16,7 +17,7 @@ const Body = () => {
             Halal cart? No you are not. So Order in "Gyros" and stop thinking
             about cash.
           </p>
-          <button className="btn learn-more">Learn more</button>
+          <FormButton>Learn more</FormButton>
         </div>
       </div>
     </div>

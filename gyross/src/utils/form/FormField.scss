@@ -16,9 +16,9 @@ $main-color: black;
 }
 
 .error_label {
-  color: #f44336;
+  color: var(--warning);
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   @media screen and (max-width: 600px) {
     font-size: 10px;
     letter-spacing: 1.5px;
