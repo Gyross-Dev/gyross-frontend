@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
+import { auth, GoogleLogin } from "../../../firebase/firebase";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
-
 import { update, isFormValid } from "../../../utils/form/FormActions";
-import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -93,6 +94,9 @@ class Login extends Component {
             ) : null}
             <FormButton onClick={(event) => this.submitForm(event)}>
               Log in
+            </FormButton>
+            <FormButton onClick={GoogleLogin} isGoogleSignIn>
+              Sign in with Google
             </FormButton>
           </form>
         </div>

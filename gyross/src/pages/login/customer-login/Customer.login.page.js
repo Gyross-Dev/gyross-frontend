@@ -3,6 +3,7 @@ import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Customer.login.page.scss";
 
+import { auth, GoogleLogin } from "../../../firebase/firebase";
 import { update, isFormValid } from "../../../utils/form/FormActions";
 import { withRouter } from "react-router-dom";
 
@@ -93,6 +94,9 @@ class Login extends Component {
             ) : null}
             <FormButton onClick={(event) => this.submitForm(event)}>
               Log in
+            </FormButton>
+            <FormButton onClick={GoogleLogin} isGoogleSignIn>
+              Sign in with Google
             </FormButton>
           </form>
         </div>

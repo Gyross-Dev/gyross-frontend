@@ -10,21 +10,23 @@ const CustomCarousel = ({ arr }) => {
     setIndex(selectedIndex);
   };
   return (
-    <div className="carousel-wrapper">
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-        {arr.map((item, key) => {
-          return (
-            <Carousel.Item key={key}>
-              <img className="image-block" src={item.src} alt="First slide" />
-              <Carousel.Caption className="caption">
-                <h1 className="title"> {item.title} </h1>
-                <p className="description">{item.description}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
-    </div>
+    <Carousel
+      className="carousel-wrapper"
+      activeIndex={index}
+      onSelect={handleSelect}
+    >
+      {arr.map((item, key) => {
+        return (
+          <Carousel.Item key={key}>
+            <img className="image-block" src={item.src} alt="First slide" />
+            <Carousel.Caption className="caption">
+              <h1 className="title"> {item.title} </h1>
+              <p className="description">{item.description}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        );
+      })}
+    </Carousel>
   );
 };
 
