@@ -1,0 +1,40 @@
+.carousel-wrapper {
+  width: 100%;
+  img {
+    width: 95%;
+    height: 600px;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      height: 500px;
+    }
+    @media screen and (max-width: 600px) {
+      height: 300px;
+    }
+  }
+  .caption {
+    padding: 5px;
+    background-color: rgb(82, 33, 33);
+    font-family: fantasy;
+    opacity: 0.5;
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 17px;
+      letter-spacing: 0.3em;
+      color: rgb(226, 192, 192);
+      @media screen and (max-width: 600px) {
+        font-size: 15px;
+      }
+    }
+    .description {
+      padding: 3px;
+      width: auto;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgb(186, 219, 110);
+      @media screen and (max-width: 600px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
