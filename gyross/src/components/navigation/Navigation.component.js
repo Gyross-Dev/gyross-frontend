@@ -9,11 +9,9 @@ const Navigation = () => {
         <div className="nav-item">
           <Link to="/">Home </Link>
         </div>
-        {/* <div className="nav-item">
-          <Link to="/About">About </Link>
-        </div> */}
-        <div class="dropdown show">
+        <div className="dropdown show">
           <Link
+            to="/"
             className="nav-item dropdown-toggle"
             role="button"
             data-toggle="dropdown"
@@ -24,7 +22,7 @@ const Navigation = () => {
           </Link>
 
           <div
-            class="dropdown-menu dropdown-menu-right"
+            className="dropdown-menu dropdown-menu-right"
             aria-labelledby="dropdownMenuLink"
           >
             <Link className="dropdown-item" to="/vendor-login">
@@ -35,8 +33,9 @@ const Navigation = () => {
             </Link>
           </div>
         </div>
-        <div class="dropdown show">
+        <div className="dropdown show">
           <Link
+            to="/"
             className="nav-item dropdown-toggle"
             role="button"
             id="dropdownMenuLink"
@@ -48,7 +47,7 @@ const Navigation = () => {
           </Link>
 
           <div
-            class="dropdown-menu dropdown-menu-right"
+            className="dropdown-menu dropdown-menu-right"
             aria-labelledby="dropdownMenuLink"
           >
             <Link className="dropdown-item" to="/vendor-signup">
