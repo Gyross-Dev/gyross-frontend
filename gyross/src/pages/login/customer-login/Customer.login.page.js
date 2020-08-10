@@ -3,7 +3,7 @@ import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Customer.login.page.scss";
 
-import { GoogleLogin } from "../../../firebase/firebase";
+import { auth, googleProvider } from "../../../firebase/firebase";
 import { update, isFormValid } from "../../../utils/form/FormActions";
 import { withRouter } from "react-router-dom";
 
@@ -71,6 +71,28 @@ class Login extends Component {
     }
   };
 
+  handleLogin = async (e) => {
+    e.preventDefault();
+    console.log("Hello");
+    const cred = await auth.signInWithEmailAndPassword(
+      "test@gmail.com",
+      "test1234"
+    );
+    console.log("Login", cred);
+  };
+  googleLogin = async (e) => {
+    e.preventDefault();
+    await auth
+      .signInWithPopup(googleProvider)
+      .then((data) => {
+        console.log("login successful");
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        this.errors.push(err.message);
+        this.loading = false;
+      });
+  };
   render() {
     return (
       <div className="login-vendor-container">
@@ -92,10 +114,8 @@ class Login extends Component {
             {this.state.formError ? (
               <div className="submit_error_label">Please check your data</div>
             ) : null}
-            <FormButton onClick={(event) => this.submitForm(event)}>
-              Log in
-            </FormButton>
-            <FormButton onClick={GoogleLogin} isGoogleSignIn>
+            <FormButton onClick={(e) => this.handleLogin(e)}>Log in</FormButton>
+            <FormButton onClick={(e) => this.googleLogin(e)} isGoogleSignIn>
               Sign in with Google
             </FormButton>
           </form>

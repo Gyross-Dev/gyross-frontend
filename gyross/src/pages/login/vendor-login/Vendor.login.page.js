@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-import { GoogleLogin } from "../../../firebase/firebase";
+import { auth, googleProvider } from "../../../firebase/firebase";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
@@ -70,6 +70,28 @@ class Login extends Component {
       });
     }
   };
+  handleLogin = async (e) => {
+    e.preventDefault();
+    console.log("Hello");
+    const cred = await auth.signInWithEmailAndPassword(
+      "test@gmail.com",
+      "test1234"
+    );
+    console.log("Login", cred);
+  };
+  googleLogin = async (e) => {
+    e.preventDefault();
+    await auth
+      .signInWithPopup(googleProvider)
+      .then((data) => {
+        console.log("login successful");
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        this.errors.push(err.message);
+        this.loading = false;
+      });
+  };
 
   render() {
     return (
@@ -95,7 +117,7 @@ class Login extends Component {
             <FormButton onClick={(event) => this.submitForm(event)}>
               Log in
             </FormButton>
-            <FormButton onClick={GoogleLogin} isGoogleSignIn>
+            <FormButton onClick={(e) => this.googleLogin(e)} isGoogleSignIn>
               Sign in with Google
             </FormButton>
           </form>
