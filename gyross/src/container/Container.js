@@ -1,6 +1,9 @@
 import React from "react";
 import FormButton from "../utils/buttons/FormButtons";
 import CustomCarousel from "../utils/carousel/Carousel";
+
+import Companies from "./companies/Companies";
+import OurService from "./our-service/OurService";
 import "./Container.scss";
 import Image from "../assets/vendor/shah_halal_comp.jpg";
 const Body = () => {
@@ -43,6 +46,13 @@ const Body = () => {
           </p>
           <FormButton>Learn more</FormButton>
         </div>
+      </div>
+
+      <div className="top-first">
+        <Companies />
+      </div>
+      <div className="top-first">
+        <OurService />
       </div>
     </div>
   );
