@@ -1,0 +1,50 @@
+.vendor-footer-container {
+  background-color: var(--bg-footer2);
+  padding: 10px;
+  .footer-title {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 100px;
+    margin: auto;
+    color: white;
+    .left,
+    .right {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: center;
+    }
+    .right {
+      border-left: 1px solid;
+    }
+    .label {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    a {
+      color: rgb(206, 171, 171);
+      padding: 0 5px;
+      margin: 5px;
+      cursor: pointer;
+      text-decoration: underline;
+      @media screen and (max-width: 600px) {
+        font-size: 12px;
+        padding: 5px 6px;
+        margin: 0 4px;
+      }
+      &:hover {
+        color: rgb(152, 152, 228);
+      }
+    }
+  }
+}

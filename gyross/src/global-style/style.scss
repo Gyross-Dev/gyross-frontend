@@ -1,3 +1,21 @@
+:root {
+  --bg_color: white;
+  --bg-header: #008b8b;
+  --bg-header2: #037070;
+  --bg-dashboard: #037070;
+  --btn-nav-bg: #faf0e6;
+  --btn-nav-color: #322f3d;
+  --btn-bg-color: #c0c0c0;
+  --btn-bg-color-hover: #086169;
+  --btn-bg-color-hover-border: #cffffe;
+  --bg-footer: #323133;
+  --bg-footer2: #203131;
+  --warning: #f44336;
+  --shadow: rgb(33, 94, 88);
+  --bg-footer-old: rgb(63, 45, 80);
+  --title-font: "Monoton", cursive;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -147,34 +165,30 @@ input::-moz-focus-inner {
 * {
   box-sizing: border-box;
 }
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+}
 
 .btn {
-  background-color: rgb(28, 28, 62);
-  color: aqua;
+  background-color: var(--btn-nav-bg);
+  color: rgb(0, 0, 0);
   outline: none;
-  min-height: 30px;
-  padding: 10px;
+  min-height: 20px;
+  padding: 3px 15px;
   border: 1px solid rgb(34, 2, 2);
   border-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   &:hover {
-    color: rgb(28, 28, 62);
-    background-color: rgb(12, 131, 131);
+    color: white;
+    background-color: var(--btn-bg-color-hover);
   }
 }
 a {
   text-decoration: none;
-}
-button {
-  cursor: pointer;
-  text-transform: uppercase;
-  padding: 10px;
-  background: #e1ddc3;
-  margin-top: 10px;
-  font-family: "Oswald", sans-serif;
-  font-size: 16px;
 }
 
 textarea {
