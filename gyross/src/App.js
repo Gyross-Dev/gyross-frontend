@@ -5,7 +5,7 @@ import VendorLogin from "./pages/login/vendor-login/Vendor.login.page";
 import BuyerLogin from "./pages/login/customer-login/Customer.login.page";
 import VendorSignup from "./pages/signup/vendor-signup/Vendor.signup.page";
 import BuyerSignup from "./pages/signup/customer-signup/Customer.signup.page";
-
+import ContainerVendor from "./pages/dashboard/vendor/container/Container.vendor";
 import "./App.css";
 
 import Layout from "./layout/Layout";
@@ -20,6 +20,7 @@ function App() {
         <Route path="/buyer-login" exact component={BuyerLogin} />
         <Route path="/buyer-Signup" exact component={BuyerSignup} />
         <Route path="/login-Signup" exact component={LoginSignup} />
+        <Route exact path="/vendor-dashboard" component={ContainerVendor} />
       </Switch>
     </Layout>
   );
