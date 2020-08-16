@@ -1,0 +1,29 @@
+.vendor-header-container {
+  background-color: var(--bg-header2);
+  padding: 10px;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      text-decoration: none;
+      padding: 5px 15px;
+      margin: 0 5px;
+      border: 1px solid #cffffe;
+      cursor: pointer;
+      background-color: var(--btn-nav-bg);
+      color: var(--btn-nav-color);
+      border-radius: 5px;
+      @media screen and (max-width: 600px) {
+        font-size: 12px;
+        padding: 5px 6px;
+        margin: 0 4px;
+      }
+      &:hover {
+        background: var(--btn-bg-color-hover);
+        color: white;
+        border: 1px solid var(--btn-bg-color-hover-border);
+      }
+    }
+  }
+}
