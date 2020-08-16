@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <div className="logo">Gyross</div>
+        <div className="logo">Gyyro</div>
         <div className="wrapper">
           <div className="left">
             <h2>Contact information</h2>
@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="tag">
                 <div className="nfo">
                   <div>Address</div>
-                  <div>Kramer 2345</div>
+                  <div>Gyyro 2345</div>
                 </div>
               </div>
               <div className="tag">
@@ -37,11 +37,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="left">
-            <h2>Be the first to know</h2>
+            <h2>Keep in touch</h2>
             <div>
               <div>
-                Get all the latest information on events, sales and offers.You
-                can miss out.
+                Get all the latest information on events, sales and offers.
               </div>
             </div>
           </div>
