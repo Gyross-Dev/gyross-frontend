@@ -85,7 +85,7 @@ class Login extends Component {
       .signInWithPopup(googleProvider)
       .then((data) => {
         console.log("login successful");
-        this.props.history.push("/");
+        this.props.history.push("/vendor-dashboard");
       })
       .catch((err) => {
         console.log("Login unsuccessful", err);
