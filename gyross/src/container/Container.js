@@ -41,7 +41,7 @@ const Body = () => {
         <div className="paragraph">
           <p>
             Are you the only one who goes to the ATM to get cash just to eat a
-            Halal cart? No you are not. So Order in "Gyros" and stop thinking
+            Halal cart? No you are not, so order in "Gyyro" and stop thinking
             about cash.
           </p>
           <FormButton>Learn more</FormButton>
