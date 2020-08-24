@@ -70,7 +70,6 @@ class Login extends Component {
         let password = this.state.formdata.password.value;
         let body = { username, password };
         let data = await axios.post(apiUrl, body).then((res) => res.data);
-        console.log(data);
         localStorage.setItem("token", data.token);
         if (data) {
           this.props.history.push("/vendor-dashboard");
