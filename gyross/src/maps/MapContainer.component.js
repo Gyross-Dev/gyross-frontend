@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
+import mapStyle from "./map.style";
 
 export class MapContainer extends Component {
   state = {
@@ -59,6 +60,7 @@ export class MapContainer extends Component {
       <GoogleMap
         defaultZoom={13}
         defaultCenter={{ lat: 40.650002, lng: -73.949997 }}
+        defaultOptions={{ styles: mapStyle }}
       >
         {this.displayMarkers()}
       </GoogleMap>
