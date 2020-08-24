@@ -10,16 +10,16 @@ const Navigation = () => {
           <Link to="/">Home </Link>
         </div>
         <div className="dropdown show">
-          <Link
+          <div
             to="/"
-            className="nav-item dropdown-toggle"
+            className="nav-item dropdown-toggle link_div"
             role="button"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
             Sign in
-          </Link>
+          </div>
 
           <div
             className="dropdown-menu dropdown-menu-right"
@@ -33,8 +33,8 @@ const Navigation = () => {
             </Link>
           </div>
         </div>
-        <div className="dropdown show">
-          <Link
+        <div className="dropdown show link_div">
+          <div
             to="/"
             className="nav-item dropdown-toggle"
             role="button"
@@ -44,7 +44,7 @@ const Navigation = () => {
             aria-expanded="false"
           >
             Sign up
-          </Link>
+          </div>
 
           <div
             className="dropdown-menu dropdown-menu-right"
@@ -57,6 +57,9 @@ const Navigation = () => {
               Buyer
             </Link>
           </div>
+        </div>
+        <div className="nav-item">
+          <div className="link_div">Logout</div>
         </div>
       </nav>
     </div>
