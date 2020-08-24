@@ -38,19 +38,19 @@ const ProfileVendor = () => {
           <div>
             <div className="customer-comp">
               <h1>*** Best Gyross Ever ***</h1>
-              <p1>by Nalayek Donald</p1>
+              <p>by Nalayek Donald</p>
             </div>
             <div className="customer-comp">
               <h1>*** Best Gyross Ever ***</h1>
-              <p1>by Nalayek Donald</p1>
+              <p>by Nalayek Donald</p>
             </div>
             <div className="customer-comp">
               <h1>*** Best Gyross Ever ***</h1>
-              <p1>by Nalayek Donald</p1>
+              <p>by Nalayek Donald</p>
             </div>
             <div className="customer-comp">
               <h1>*** Best Gyross Ever ***</h1>
-              <p1>by Nalayek Donald</p1>
+              <p>by Nalayek Donald</p>
             </div>
           </div>
         </div>
