@@ -7,13 +7,27 @@ const LeftNavVendor = () => {
     <div className="dashboard-container">
       <h1 className="title">Dashboard</h1>
       <nav className="nav-container">
-        <Link className="nav-item">Profile</Link>
-        <Link className="nav-item">Menu</Link>
-        <Link className="nav-item">Location</Link>
-        <Link className="nav-item">Earning</Link>
-        <Link className="nav-item">Tax Information</Link>
-        <Link className="nav-item">Banking</Link>
-        <Link className="nav-item">Help</Link>
+        <Link to="/profile" className="nav-item">
+          Profile
+        </Link>
+        <Link to="/menu" className="nav-item">
+          Menu
+        </Link>
+        <Link to="location" className="nav-item">
+          Location
+        </Link>
+        <Link to="earning" className="nav-item">
+          Earning
+        </Link>
+        <Link to="tax-info" className="nav-item">
+          Tax Information
+        </Link>
+        <Link to="banking" className="nav-item">
+          Banking
+        </Link>
+        <Link to="help" className="nav-item">
+          Help
+        </Link>
       </nav>
     </div>
   );

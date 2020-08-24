@@ -5,10 +5,7 @@ const HeaderVendor = () => {
   return (
     <div className="vendor-header-container">
       <nav>
-        <Link>Item 1</Link>
-        <Link>Item 2</Link>
-        <Link>Item 3</Link>
-        <Link>Item 4</Link>
+        <Link to="/">Home</Link>
       </nav>
     </div>
   );

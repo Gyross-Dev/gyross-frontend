@@ -1,7 +1,7 @@
 import React from "react";
 import FormButton from "../utils/buttons/FormButtons";
 import CustomCarousel from "../utils/carousel/Carousel";
-
+import MapWrapper from "../maps/MapContainer.component";
 import Companies from "./companies/Companies";
 import OurService from "./our-service/OurService";
 import "./Container.scss";
@@ -46,6 +46,10 @@ const Body = () => {
           </p>
           <FormButton>Learn more</FormButton>
         </div>
+      </div>
+      <div className="top-first">
+        <h1 className="title-cart_near_me">Food Cart Near Me....</h1>
+        <MapWrapper />
       </div>
 
       <div className="top-first">

@@ -9,7 +9,8 @@ header {
     color: white;
     font-weight: 600;
     @media screen and (max-width: 600px) {
-      height: 50px;
+      height: auto;
+      flex-direction: column;
     }
     .logo {
       text-align: center;
@@ -19,6 +20,7 @@ header {
       padding-bottom: 10px;
       @media screen and (max-width: 600px) {
         font-size: 25px;
+        margin-top: 10px;
       }
     }
   }
