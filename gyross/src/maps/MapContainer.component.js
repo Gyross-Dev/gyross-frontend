@@ -11,14 +11,41 @@ import mapStyle from "./map.style";
 export class MapContainer extends Component {
   state = {
     stores: [
-      { latitude: 40.690502, longitude: -73.929912, name: "Halal Public" },
-      { latitude: 40.700102, longitude: -73.89925407, name: "Special Gyyros" },
-      { latitude: 40.750102, longitude: -73.89925407, name: "Special Gyyros" },
-      { latitude: 40.910102, longitude: -73.89025407, name: "Special Gyyros" },
-      { latitude: 40.650002, longitude: -73.939997, name: "Mia Halal" },
-      { latitude: 40.660202, longitude: -73.949991, name: "Shah Halal" },
-      { latitude: 40.670012, longitude: -73.999934, name: "Halal Guys" },
-      { latitude: 40.680302, longitude: -73.969956, name: "Mia Halal" },
+      {
+        geoLocation: {
+          _latitude: 40.690502,
+          _longitude: -73.929912,
+        },
+        name: "Abdullah Halal Cart",
+      },
+      {
+        name: "Shah Halal",
+        geoLocation: {
+          _latitude: 40.700568,
+          _longitude: -73.899513,
+        },
+      },
+      {
+        geoLocation: {
+          _latitude: 40.785,
+          _longitude: -73.98513,
+        },
+        name: "Shahjahan Halal Cart",
+      },
+      {
+        name: "Mia Halal",
+        geoLocation: {
+          _longitude: -73.89789,
+          _latitude: 40.667892,
+        },
+      },
+      {
+        geoLocation: {
+          _latitude: 40.687892,
+          _longitude: -73.9789001,
+        },
+        name: "Tomy Miar Halal Cart",
+      },
     ],
   };
 
@@ -29,8 +56,8 @@ export class MapContainer extends Component {
           <Marker
             id={index}
             position={{
-              lat: store.latitude,
-              lng: store.longitude,
+              lat: store.geoLocation._latitude,
+              lng: store.geoLocation._longitude,
             }}
             icon={{
               url:
@@ -42,8 +69,8 @@ export class MapContainer extends Component {
           <InfoWindow
             id={index}
             position={{
-              lat: store.latitude,
-              lng: store.longitude,
+              lat: store.geoLocation._latitude,
+              lng: store.geoLocation._longitude,
             }}
           >
             <div>
