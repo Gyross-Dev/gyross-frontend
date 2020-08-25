@@ -66,13 +66,10 @@ class Login extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.vendorAuth !== this.props.vendorAuth) {
-      // let token = this.props.vendorAuth.data.token;
-      let auth = this.props.vendorAuth.auth;
       this.setState({
-        auth: auth,
-        isFetching: this.props.vendorAuth.isFetching,
+        auth: this.props.vendorAuth,
       });
-      if (auth) {
+      if (this.props.vendorAuth.data) {
         localStorage.setItem("token", this.props.vendorAuth.data.token);
         this.props.history.push("/vendor-dashboard");
       }
@@ -112,7 +109,6 @@ class Login extends Component {
     await auth
       .signInWithPopup(googleProvider)
       .then((data) => {
-        console.log("login successful");
         this.props.history.push("/vendor-dashboard");
       })
       .catch((err) => {
@@ -141,15 +137,22 @@ class Login extends Component {
               <div className="submit_error_label"> Please check your data </div>
             ) : null}{" "}
             <FormButton onClick={(event) => this.submitForm(event)}>
-              {this.state.isFetching ? (
-                <div style={{ width: "30px", height: "30px" }}>
+              {this.state.auth.isFetching ? (
+                <div
+                  style={{ width: "30px", height: "30px", marginRight: "10px" }}
+                >
                   <SmallSpinner />{" "}
                 </div>
               ) : null}
               Log in
             </FormButton>{" "}
           </form>{" "}
-        </div>{" "}
+          {this.state.auth.err ? (
+            <div style={{ marginTop: "10px" }} className="submit_error_label">
+              {this.state.auth.err}
+            </div>
+          ) : null}{" "}
+        </div>
       </div>
     );
   }
