@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
 import { auth, googleProvider } from "../../../firebase/firebase";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
 import { update, isFormValid } from "../../../utils/form/FormActions";
+
+//Redux action
+import { loginAsync } from "../../../redux/actions/vendor/Auth.vendor.action";
 import { connect } from "react-redux";
 
 class Login extends Component {
   state = {
+    auth: {
+      auth: false,
+      isFetching: null,
+      err: undefined,
+      data: {},
+    },
     formError: false,
     formSuccess: "",
     formdata: {
@@ -51,6 +59,20 @@ class Login extends Component {
     },
   };
 
+  componentDidMount() {
+    this.setState({ auth: this.props.vendorAuth });
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.vendorAuth !== this.props.vendorAuth) {
+      // let token = this.props.vendorAuth.data.token;
+      let auth = this.props.vendorAuth.auth;
+      if (auth) {
+        localStorage.setItem("token", this.props.vendorAuth.data.token);
+        this.props.history.push("/vendor-dashboard");
+      }
+    }
+  }
+
   updateForm = (element) => {
     const newFormdata = update(element, this.state.formdata, "login");
     this.setState({
@@ -65,15 +87,10 @@ class Login extends Component {
 
     if (formIsValid) {
       try {
-        let apiUrl = `${process.env.REACT_APP_Heroku_Api}/vendors/signin`;
         let username = this.state.formdata.username.value;
         let password = this.state.formdata.password.value;
         let body = { username, password };
-        let data = await axios.post(apiUrl, body).then((res) => res.data);
-        localStorage.setItem("token", data.token);
-        if (data) {
-          this.props.history.push("/vendor-dashboard");
-        }
+        this.props.login(body);
       } catch (err) {
         console.log(err);
       }
@@ -127,4 +144,11 @@ class Login extends Component {
   }
 }
 
-export default connect()(withRouter(Login));
+const mapStateToProps = (state) => ({
+  vendorAuth: state.Vendor,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  login: (data) => dispatch(loginAsync(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

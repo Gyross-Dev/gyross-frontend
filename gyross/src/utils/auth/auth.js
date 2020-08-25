@@ -1,8 +1,7 @@
-export function logout({ auth }) {
-  auth = auth === true ? false : false;
+export function logout(history) {
   let token = localStorage.getItem("token");
   if (token) {
     localStorage.setItem("token", "");
   }
-  return auth;
+  history.push("/");
 }
