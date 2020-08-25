@@ -79,14 +79,19 @@ class Navigation extends React.Component {
             </>
           ) : null}
           {auth ? (
-            <div className="nav-item">
-              <div
-                className="link_div"
-                onClick={() => this.props.logout(history)}
-              >
-                Logout
+            <>
+              <div className="nav-item">
+                <Link to="/vendor-dashboard">Profile</Link>
               </div>
-            </div>
+              <div className="nav-item">
+                <div
+                  className="link_div"
+                  onClick={() => this.props.logout(history)}
+                >
+                  Logout
+                </div>
+              </div>
+            </>
           ) : null}
         </nav>
       </div>
