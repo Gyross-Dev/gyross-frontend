@@ -20,7 +20,7 @@ const AuthReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         auth: false,
-        err: action.payload,
+        err: action.payload.response.data.message,
       });
     case authTypes.LOGOUT:
       return Object.assign({}, state, {
