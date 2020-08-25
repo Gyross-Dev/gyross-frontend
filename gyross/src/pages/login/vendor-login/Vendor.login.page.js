@@ -67,7 +67,7 @@ class Login extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.vendorAuth !== this.props.vendorAuth) {
       this.setState({
-        auth: this.props.vendorAuth,
+        auth: { ...this.state.auth, ...this.props.vendorAuth },
       });
       if (this.props.vendorAuth.data) {
         localStorage.setItem("token", this.props.vendorAuth.data.token);
