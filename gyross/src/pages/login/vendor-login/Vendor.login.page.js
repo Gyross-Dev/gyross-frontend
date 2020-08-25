@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { auth, googleProvider } from "../../../firebase/firebase";
+
+import { SmallSpinner } from "../../../components/spinner/Spinner.component";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
@@ -66,6 +68,10 @@ class Login extends Component {
     if (prevProps.vendorAuth !== this.props.vendorAuth) {
       // let token = this.props.vendorAuth.data.token;
       let auth = this.props.vendorAuth.auth;
+      this.setState({
+        auth: auth,
+        isFetching: this.props.vendorAuth.isFetching,
+      });
       if (auth) {
         localStorage.setItem("token", this.props.vendorAuth.data.token);
         this.props.history.push("/vendor-dashboard");
@@ -119,7 +125,7 @@ class Login extends Component {
     return (
       <div className="login-vendor-container">
         <div className="container-fields">
-          <h1 className="vendor-title"> Vendor Login </h1>{" "}
+          <h1 className="vendor-title">Vendor Login</h1>{" "}
           <form>
             <FormField
               id={"username"}
@@ -135,6 +141,11 @@ class Login extends Component {
               <div className="submit_error_label"> Please check your data </div>
             ) : null}{" "}
             <FormButton onClick={(event) => this.submitForm(event)}>
+              {this.state.isFetching ? (
+                <div style={{ width: "30px", height: "30px" }}>
+                  <SmallSpinner />{" "}
+                </div>
+              ) : null}
               Log in
             </FormButton>{" "}
           </form>{" "}
