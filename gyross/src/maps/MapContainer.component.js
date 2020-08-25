@@ -7,9 +7,13 @@ import {
   InfoWindow,
 } from "react-google-maps";
 import mapStyle from "./map.style";
+import { fetchNameLocationAsync } from "../redux/actions/vendor/Name-Location.action";
 
-export class MapContainer extends Component {
+import { connect } from "react-redux";
+
+class MapContainer extends Component {
   state = {
+    nameLocation: {},
     stores: [
       {
         geoLocation: {
@@ -48,38 +52,52 @@ export class MapContainer extends Component {
       },
     ],
   };
+  componentDidMount() {
+    this.props.fetchNameLocationAsync();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.nameLocation !== this.props.nameLocation) {
+      this.setState({
+        nameLocation: this.props.nameLocation,
+      });
+    }
+  }
 
   displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
-      return (
-        <div key={index}>
-          <Marker
-            id={index}
-            position={{
-              lat: store.geoLocation._latitude,
-              lng: store.geoLocation._longitude,
-            }}
-            icon={{
-              url:
-                "https://images.unsplash.com/photo-1547620917-786ebcbc55af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-              scaledSize: new window.google.maps.Size(25, 25),
-            }}
-            onClick={() => console.log("you clicked", store.name)}
-          />
-          <InfoWindow
-            id={index}
-            position={{
-              lat: store.geoLocation._latitude,
-              lng: store.geoLocation._longitude,
-            }}
-          >
-            <div>
-              <h2>{store.name}</h2>
-            </div>
-          </InfoWindow>
-        </div>
-      );
-    });
+    if (this.state.nameLocation.data) {
+      return this.state.nameLocation.data.map((store, index) => {
+        return (
+          <div key={index}>
+            <Marker
+              id={index}
+              position={{
+                lat: store.geoLocation._latitude,
+                lng: store.geoLocation._longitude,
+              }}
+              icon={{
+                url:
+                  "https://images.unsplash.com/photo-1547620917-786ebcbc55af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
+                scaledSize: new window.google.maps.Size(25, 25),
+              }}
+              onClick={() => console.log("you clicked", store.name)}
+            />
+            <InfoWindow
+              id={index}
+              position={{
+                lat: store.geoLocation._latitude,
+                lng: store.geoLocation._longitude,
+              }}
+            >
+              <div>
+                <h2>{store.name}</h2>
+              </div>
+            </InfoWindow>
+          </div>
+        );
+      });
+    } else {
+      return null;
+    }
   };
 
   render() {
@@ -94,9 +112,20 @@ export class MapContainer extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  nameLocation: state.nameLocation,
+});
 
-const MapWrapped = withScriptjs(withGoogleMap(MapContainer));
-export default function GoogleApiWrapper() {
+const mapDispatchToProps = (dispatch) => ({
+  fetchNameLocationAsync: () => dispatch(fetchNameLocationAsync()),
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+const MapWrapped = withScriptjs(
+  withGoogleMap(connect(mapStateToProps, mapDispatchToProps)(MapContainer))
+);
+const GoogleApiWrapper = () => {
   return (
     <div style={{ width: "100vw", height: "60vh" }}>
       <MapWrapped
@@ -107,4 +136,7 @@ export default function GoogleApiWrapper() {
       />
     </div>
   );
-}
+};
+
+export default GoogleApiWrapper;
+/////////////////////////////////////////////////////////////////////////////////////
