@@ -6,7 +6,11 @@ import { SmallSpinner } from "../../../components/spinner/Spinner.component";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
 import "./Vendor.login.page.scss";
-import { update, isFormValid } from "../../../utils/form/FormActions";
+import {
+  update,
+  isFormValid,
+  generateData,
+} from "../../../utils/form/FormActions";
 
 //Redux action
 import { loginAsync } from "../../../redux/actions/vendor/Auth.vendor.action";
@@ -70,7 +74,10 @@ class Login extends Component {
         auth: { ...this.state.auth, ...this.props.vendorAuth },
       });
       if (this.props.vendorAuth.data) {
-        localStorage.setItem("token", this.props.vendorAuth.data.token);
+        let id = this.props.vendorAuth.data.Message.split(" ")[1];
+        let token = this.props.vendorAuth.data.token;
+        localStorage.setItem("token", token);
+        localStorage.setItem("id", id);
         this.props.history.push("/vendor-dashboard");
       }
     }
@@ -87,13 +94,10 @@ class Login extends Component {
   submitForm = async (event) => {
     event.preventDefault();
     let formIsValid = isFormValid(this.state.formdata, "login");
-
+    let dataToSubmit = generateData(this.state.formdata, "login");
     if (formIsValid) {
       try {
-        let username = this.state.formdata.username.value;
-        let password = this.state.formdata.password.value;
-        let body = { username, password };
-        this.props.login(body);
+        this.props.login(dataToSubmit);
       } catch (err) {
         console.log(err);
       }
