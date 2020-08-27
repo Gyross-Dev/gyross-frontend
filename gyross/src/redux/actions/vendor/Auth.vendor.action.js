@@ -36,8 +36,10 @@ export const loginAsync = (dataToSubmit) => async (dispatch) => {
 
 export const logout = (history) => (dispatch) => {
   let token = localStorage.getItem("token");
-  if (token) {
+  let id = localStorage.getItem("id");
+  if (token || id) {
     localStorage.setItem("token", "");
+    localStorage.setItem("id", "");
   }
   dispatch(LogoutStart());
   history.push("/");
