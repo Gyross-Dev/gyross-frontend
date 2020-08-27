@@ -14,43 +14,6 @@ import { connect } from "react-redux";
 class MapContainer extends Component {
   state = {
     nameLocation: {},
-    stores: [
-      {
-        geoLocation: {
-          _latitude: 40.690502,
-          _longitude: -73.929912,
-        },
-        name: "Abdullah Halal Cart",
-      },
-      {
-        name: "Shah Halal",
-        geoLocation: {
-          _latitude: 40.700568,
-          _longitude: -73.899513,
-        },
-      },
-      {
-        geoLocation: {
-          _latitude: 40.785,
-          _longitude: -73.98513,
-        },
-        name: "Shahjahan Halal Cart",
-      },
-      {
-        name: "Mia Halal",
-        geoLocation: {
-          _longitude: -73.89789,
-          _latitude: 40.667892,
-        },
-      },
-      {
-        geoLocation: {
-          _latitude: 40.687892,
-          _longitude: -73.9789001,
-        },
-        name: "Tomy Miar Halal Cart",
-      },
-    ],
   };
   componentDidMount() {
     this.props.fetchNameLocationAsync();
@@ -62,7 +25,6 @@ class MapContainer extends Component {
       });
     }
   }
-
   displayMarkers = () => {
     if (this.state.nameLocation.data) {
       return this.state.nameLocation.data.map((store, index) => {
@@ -99,7 +61,6 @@ class MapContainer extends Component {
       return null;
     }
   };
-
   render() {
     return (
       <GoogleMap
