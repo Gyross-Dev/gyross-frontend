@@ -20,16 +20,9 @@ class ProfileVendor extends React.Component {
   }
   render() {
     if (this.state.data) {
-      var {
-        name,
-        menu,
-        username,
-        phone,
-        email,
-        geoLocation,
-        password,
-      } = this.state.data;
+      var { name, phone, email, geoLocation } = this.state.data;
     }
+    // password,menu, username,
     return (
       <div className="profile-container">
         <div className="title">
