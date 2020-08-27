@@ -19,7 +19,7 @@ class Signup extends Component {
           name: "firstname_input",
           type: "text",
           label: "First Name",
-          placeholder: "Enter your firstname",
+          placeholder: "Enter your first name",
         },
         validation: {
           required: true,
@@ -36,7 +36,7 @@ class Signup extends Component {
           name: "lastname_input",
           type: "text",
           label: "Last Name",
-          placeholder: "Enter your lastname",
+          placeholder: "Enter your last name",
         },
         validation: {
           required: true,
@@ -102,7 +102,7 @@ class Signup extends Component {
   };
 
   updateForm = (element) => {
-    const newFormdata = update(element, this.state.formdata, "login");
+    const newFormdata = update(element, this.state.formdata, "signup");
     this.setState({
       formError: false,
       formdata: newFormdata,
