@@ -163,7 +163,8 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  vendorAuth: state.Vendor,
+  vendorAuth: state.vendorAuth,
+  auth: state.authentication.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -26,9 +26,7 @@ const Container = lazy(() => import("./container/Container"));
 
 class App extends React.Component {
   componentDidMount() {
-    axios
-      .get(process.env.REACT_APP_Heroku)
-      .then((res) => console.log(res.data));
+    axios.get(process.env.REACT_APP_Heroku).then((res) => res);
   }
   render() {
     return (

@@ -3,16 +3,26 @@ import "./Navigation.component.scss";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
-import { logout } from "../../redux/actions/vendor/Auth.vendor.action";
+import { authenticateAsync } from "../../redux/auth/auth.action";
+import { logout } from "../../redux/auth/auth.action";
 
 class Navigation extends React.Component {
   state = {
     auth: false,
   };
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      this.props.authenticateAsync(token);
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.auth !== this.props.auth) {
       this.setState({ auth: this.props.auth });
+    }
+    if (prevProps.authenticate !== this.props.authenticate) {
+      this.setState({ auth: this.props.authenticate });
     }
   }
   render() {
@@ -99,11 +109,13 @@ class Navigation extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  auth: state.Vendor.auth,
+  auth: state.vendorAuth.auth,
+  authenticate: state.authentication.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   logout: (history) => dispatch(logout(history)),
+  authenticateAsync: (token) => dispatch(authenticateAsync(token)),
 });
 export default connect(
   mapStateToProps,
