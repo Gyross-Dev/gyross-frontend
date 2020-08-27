@@ -7,10 +7,10 @@ const LeftNavVendor = () => {
     <div className="dashboard-container">
       <h1 className="title">Dashboard</h1>
       <nav className="nav-container">
-        <Link to="/profile" className="nav-item">
+        <Link to="/vendor-dashboard" className="nav-item">
           Profile
         </Link>
-        <Link to="/menu" className="nav-item">
+        <Link to="/vendor-dashboard/menu" className="nav-item">
           Menu
         </Link>
         <Link to="location" className="nav-item">
