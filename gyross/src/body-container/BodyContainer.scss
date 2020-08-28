@@ -1,0 +1,64 @@
+.body-container {
+  min-height: 70vh;
+  color: black;
+  margin: 0;
+  padding: 0;
+  .top-first {
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+    .carousel-container {
+      width: 800px;
+      height: 600px;
+      margin: 20px auto;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        height: 500px;
+      }
+      @media screen and (max-width: 576px) {
+        width: 100%;
+        height: 300px;
+      }
+    }
+    .title-cart_near_me {
+      font-size: 25px;
+      text-align: center;
+      padding: 8px;
+      font-weight: 600;
+      color: rgb(9, 34, 71);
+      width: 100%;
+      background-color: rgb(140, 184, 53);
+    }
+    .paragraph {
+      padding: 10px;
+      margin: auto;
+      font-size: 15px;
+      line-height: 1.5rem;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin: 20px 10px;
+      }
+      .learn-more {
+        width: 80%;
+        display: flex;
+      }
+      @media screen and (max-width: 991px) {
+        width: 500px;
+      }
+      @media screen and (max-width: 576px) {
+        width: 300px;
+      }
+    }
+  }
+}
