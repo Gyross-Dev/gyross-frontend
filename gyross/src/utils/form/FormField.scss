@@ -19,7 +19,7 @@ $main-color: black;
   color: var(--warning);
   display: block;
   font-size: 11px;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 576px) {
     font-size: 10px;
     letter-spacing: 1.5px;
   }

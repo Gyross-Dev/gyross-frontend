@@ -23,11 +23,11 @@
       font-size: 25px;
       margin: 30px auto;
       padding: 5px;
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 576px) {
         font-size: 17px;
       }
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 576px) {
       width: 300px;
     }
   }
