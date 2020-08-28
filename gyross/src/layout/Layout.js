@@ -5,10 +5,14 @@ import Footer from "../components/footer/Footer.component";
 
 const Layout = (props) => {
   return (
-    <div>
-      <Header />
+    <div className="app-container">
+      <div className="header-conatiner">
+        <Header />
+      </div>
       <div className="page_container">{props.children}</div>
-      <Footer />
+      <div className="footer-conatiner">
+        <Footer />
+      </div>
     </div>
   );
 };
