@@ -22,7 +22,7 @@ const BuyerSignup = lazy(() =>
   import("./pages/signup/customer-signup/Customer.signup.page")
 );
 
-const Container = lazy(() => import("./container/Container"));
+const BodyContainer = lazy(() => import("./body-container/BodyContainer.js"));
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,7 +34,7 @@ class App extends React.Component {
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
-              <Route path="/" exact component={Container} />
+              <Route path="/" exact component={BodyContainer} />
               <Route path="/vendor-login" exact component={VendorLogin} />
               <Route path="/vendor-signup" exact component={VendorSignup} />
               <Route path="/buyer-login" exact component={BuyerLogin} />
