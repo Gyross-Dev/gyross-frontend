@@ -1,14 +1,17 @@
 header {
-  padding: 0 2px 0 10px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
   background-color: var(--bg-header);
   .header-container {
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 70px;
     color: white;
     font-weight: 600;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 576px) {
       height: auto;
       flex-direction: column;
     }
@@ -18,7 +21,7 @@ header {
       color: #ffffff;
       font-size: 40px;
       padding-bottom: 10px;
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 576px) {
         font-size: 25px;
         margin-top: 10px;
       }
