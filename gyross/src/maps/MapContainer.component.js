@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
+
 import mapStyle from "./map.style";
 import { fetchNameLocationAsync } from "../redux/actions/vendor/Name-Location.action";
 
@@ -14,6 +15,9 @@ import { connect } from "react-redux";
 class MapContainer extends Component {
   state = {
     nameLocation: {},
+    isOpen: false,
+    store: null,
+    index: null,
   };
   componentDidMount() {
     this.props.fetchNameLocationAsync();
@@ -24,6 +28,16 @@ class MapContainer extends Component {
         nameLocation: this.props.nameLocation,
       });
     }
+  }
+  handleToggle = (index, curStore) => {
+    this.setState({
+      isOpen: !false,
+      index: index,
+      store: curStore,
+    });
+  };
+  handleInfoWindow() {
+    this.setState({ index: null, store: null });
   }
   displayMarkers = () => {
     if (this.state.nameLocation.data) {
@@ -36,24 +50,38 @@ class MapContainer extends Component {
                 lat: store.geoLocation._latitude,
                 lng: store.geoLocation._longitude,
               }}
-              icon={{
-                url:
-                  "https://images.unsplash.com/photo-1547620917-786ebcbc55af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60",
-                scaledSize: new window.google.maps.Size(25, 25),
+              label={{
+                fontFamily: "Fontawesome",
+                text: "\uf299",
               }}
-              onClick={() => console.log("you clicked", store.name)}
+              onClick={() => this.handleToggle(index, store)}
             />
-            <InfoWindow
-              id={index}
-              position={{
-                lat: store.geoLocation._latitude,
-                lng: store.geoLocation._longitude,
-              }}
-            >
-              <div>
-                <h2>{store.name}</h2>
-              </div>
-            </InfoWindow>
+            {this.state.isOpen && this.state.store && (
+              <InfoWindow
+                id={this.state.index}
+                key={this.state.index}
+                position={{
+                  lat: this.state.store.geoLocation._latitude,
+                  lng: this.state.store.geoLocation._longitude,
+                }}
+                onCloseClick={() => this.handleInfoWindow()}
+              >
+                <div>
+                  <h2
+                    style={{
+                      margin: "6px",
+                      textAlign: "center",
+                      fontSize: "15px",
+                    }}
+                  >
+                    {this.state.store.name}
+                  </h2>
+                  <a href="menu">Menu</a>
+                  <span> | </span>
+                  <a href="menu">Order Now</a>
+                </div>
+              </InfoWindow>
+            )}
           </div>
         );
       });
