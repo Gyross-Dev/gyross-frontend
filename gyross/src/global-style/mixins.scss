@@ -1,0 +1,15 @@
+@mixin box-shadow {
+  box-shadow: 0 1px 3px 0 1px 20px rgba(29, 6, 6, 0.12),
+    0 1px 20px rgba(32, 5, 5, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@mixin btn-hover-radius {
+  border-radius: 5px;
+  &:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(89, 77, 141);
+    cursor: pointer;
+    border: 1px solid rgb(255, 255, 255);
+  }
+}
