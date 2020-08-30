@@ -1,0 +1,59 @@
+@import "../../global-style/style.scss";
+.menu-container {
+  display: flex;
+  justify-content: center;
+}
+.menu-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+  max-width: 1200px;
+  .menu-title {
+    width: 90%;
+    text-align: center;
+    font-size: 40px;
+    font-family: fantasy;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 20px;
+    @include box-shadow-bottom();
+  }
+  .menu-box {
+    @include box-shadow();
+    max-width: 1200px;
+    background-color: $bg-menu;
+    border: 1px solid $bg-menu;
+    width: 400px;
+    margin: 10px;
+    text-transform: uppercase;
+    .menu-category {
+      height: 20px;
+      margin-top: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $bg-menu-category;
+    }
+  }
+}
+.item-container {
+  padding: 10px;
+  background-color: $bg-menu-category;
+  width: 100%;
+  height: calc(100% - 40px);
+  margin: 10px auto;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: $bg-menu;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 15px;
+}
