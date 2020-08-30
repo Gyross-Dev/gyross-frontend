@@ -43,8 +43,8 @@ class MapContainer extends Component {
   displayMarkers = () => {
     if (this.state.nameLocation.data) {
       return this.state.nameLocation.data.map((store, index) => {
-        let lat = store.geoLocation ? store.geoLocation._latitude : null;
-        let lng = store.geoLocation ? store.geoLocation._longitude : null;
+        let lat = store.geoLocation ? store.geoLocation._latitude : 0;
+        let lng = store.geoLocation ? store.geoLocation._longitude : 0;
         return (
           <div key={index}>
             <Marker
