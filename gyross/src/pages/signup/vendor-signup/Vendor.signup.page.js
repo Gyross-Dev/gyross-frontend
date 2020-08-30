@@ -18,8 +18,8 @@ class Signup extends Component {
     auth: {
       auth: false,
       isFetching: null,
-      err: undefined,
       regdata: {},
+      regerr: undefined,
     },
     formError: false,
     formSuccess: false,
@@ -141,7 +141,7 @@ class Signup extends Component {
         formSuccess: this.props.vendorAuth.registrationSuccess,
       });
     }
-    if (this.props.vendorAuth.registrationSuccess) {
+    if (this.state.formSuccess) {
       setTimeout(() => {
         this.props.history.push("/vendor-login");
       }, 2000);
@@ -164,11 +164,12 @@ class Signup extends Component {
       try {
         this.props.registration(dataToSubmit);
       } catch (err) {
-        this.setState({ formError: true });
+        this.setState({ formError: true, formSuccess: false });
       }
     } else {
       this.setState({
         formError: true,
+        formSuccess: false,
       });
     }
   };
@@ -225,8 +226,8 @@ class Signup extends Component {
               </FormButton>
             </div>
           </form>
-          {this.state.auth.err ? (
-            this.state.auth.err.code === 6 ? (
+          {this.state.auth.regerr ? (
+            this.state.auth.regerr.code === 6 ? (
               <div style={{ marginTop: "10px" }} className="submit_error_label">
                 Username not available, try with a different one.
               </div>
