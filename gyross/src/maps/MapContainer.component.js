@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./map.style.scss";
 import {
   withGoogleMap,
   withScriptjs,
@@ -30,6 +31,7 @@ class MapContainer extends Component {
     }
   }
   handleToggle = (index, curStore) => {
+    console.log(curStore);
     this.setState({
       isOpen: !false,
       index: index,
@@ -116,7 +118,7 @@ const MapWrapped = withScriptjs(
 );
 const GoogleApiWrapper = () => {
   return (
-    <div style={{ width: "100vw", height: "60vh" }}>
+    <div className="map-container">
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_PLACES_API_KEY}`}
         loadingElement={<div style={{ height: `100%` }} />}
