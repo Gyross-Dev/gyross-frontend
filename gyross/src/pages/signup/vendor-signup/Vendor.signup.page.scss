@@ -1,3 +1,4 @@
+@import "../../../global-style/style.scss";
 .signup-vendor-container {
   display: flex;
   justify-content: center;
@@ -30,5 +31,15 @@
     @media screen and (max-width: 576px) {
       width: 300px;
     }
+  }
+}
+
+.dialog_alert {
+  background-color: $bg-success;
+  padding: 30px;
+  h1 {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 4px 0;
   }
 }

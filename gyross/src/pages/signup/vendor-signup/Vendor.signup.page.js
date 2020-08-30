@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 import FormField from "../../../utils/form/Formfield";
 import FormButton from "../../../utils/buttons/FormButtons";
-import { update, isFormValid } from "../../../utils/form/FormActions";
+import {
+  update,
+  isFormValid,
+  generateData,
+} from "../../../utils/form/FormActions";
 import Dialog from "@material-ui/core/Dialog";
-
+import { registrationAsync } from "../../../redux/actions/vendor/Auth.vendor.action";
 import "./Vendor.signup.page.scss";
+
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Signup extends Component {
   state = {
+    auth: {
+      auth: false,
+      isFetching: null,
+      err: undefined,
+      regdata: {},
+    },
     formError: false,
     formSuccess: false,
     formdata: {
-      name: {
+      firstname: {
         element: "input",
         value: "",
         showlabel: true,
@@ -63,6 +76,23 @@ class Signup extends Component {
         touched: false,
         validationMessage: "",
       },
+      username: {
+        element: "input",
+        value: "",
+        showlabel: true,
+        config: {
+          name: "username",
+          type: "text",
+          label: "Username",
+          placeholder: "Enter your username",
+        },
+        validation: {
+          required: true,
+        },
+        valid: false,
+        touched: false,
+        validationMessage: "",
+      },
       password: {
         element: "input",
         value: "",
@@ -101,6 +131,23 @@ class Signup extends Component {
     },
   };
 
+  componentDidMount() {
+    this.setState({ auth: { ...this.state.auth, ...this.props.vendorAuth } });
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.vendorAuth !== this.props.vendorAuth) {
+      this.setState({
+        auth: { ...this.state.auth, ...this.props.vendorAuth },
+        formSuccess: this.props.vendorAuth.registrationSuccess,
+      });
+    }
+    if (this.props.vendorAuth.registrationSuccess) {
+      setTimeout(() => {
+        this.props.history.push("/vendor-login");
+      }, 2000);
+    }
+  }
+
   updateForm = (element) => {
     const newFormdata = update(element, this.state.formdata, "signup");
     this.setState({
@@ -112,9 +159,13 @@ class Signup extends Component {
   submitForm = (event) => {
     event.preventDefault();
     let formIsValid = isFormValid(this.state.formdata, "signup");
-
+    let dataToSubmit = generateData(this.state.formdata, "signup");
     if (formIsValid) {
-      console.log("Signup Succeess");
+      try {
+        this.props.registration(dataToSubmit);
+      } catch (err) {
+        this.setState({ formError: true });
+      }
     } else {
       this.setState({
         formError: true,
@@ -131,8 +182,8 @@ class Signup extends Component {
             <h2>Personal information</h2>
             <div className="form_items">
               <FormField
-                id={"name"}
-                formdata={this.state.formdata.name}
+                id={"firstname"}
+                formdata={this.state.formdata.firstname}
                 change={(element) => this.updateForm(element)}
               />
               <FormField
@@ -146,8 +197,14 @@ class Signup extends Component {
                 change={(element) => this.updateForm(element)}
               />
             </div>
-            <h2>Verify password</h2>
+
             <div className="form_items">
+              <FormField
+                id={"username"}
+                formdata={this.state.formdata.username}
+                change={(element) => this.updateForm(element)}
+              />
+              <h2>Verify password</h2>
               <FormField
                 id={"password"}
                 formdata={this.state.formdata.password}
@@ -168,19 +225,36 @@ class Signup extends Component {
               </FormButton>
             </div>
           </form>
+          {this.state.auth.err ? (
+            this.state.auth.err.code === 6 ? (
+              <div style={{ marginTop: "10px" }} className="submit_error_label">
+                Username not available, try with a different one.
+              </div>
+            ) : null
+          ) : null}
         </div>
-
-        <Dialog open={this.state.formSuccess}>
-          <div className="dialog_alert">
-            <div>Congratulations !!</div>
-            <div>
-              You will be redirected to the LOGIN in a couple seconds...
+        {this.state.formSuccess ? (
+          <Dialog open={this.state.formSuccess}>
+            <div className="dialog_alert">
+              <h1>Congratulations !!</h1>
+              <h1>{this.state.auth.regdata.Message}</h1>
+              <div>
+                You will be redirected to the LOGIN Page in a couple seconds...
+              </div>
             </div>
-          </div>
-        </Dialog>
+          </Dialog>
+        ) : null}
       </div>
     );
   }
 }
 
-export default Signup;
+const mapStateToProps = (state) => ({
+  vendorAuth: state.vendorAuth,
+  auth: state.authentication.auth,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  registration: (data) => dispatch(registrationAsync(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Signup));
