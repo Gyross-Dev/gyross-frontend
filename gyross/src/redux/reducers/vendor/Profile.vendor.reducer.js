@@ -17,6 +17,10 @@ const ProfileReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         err: action.payload.response.data.message,
       });
+    case profileType.FETCH_MENUS:
+      return Object.assign({}, state, {
+        menu: action.payload,
+      });
     default:
       return state;
   }

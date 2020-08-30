@@ -41,7 +41,7 @@ class App extends React.Component {
               <Route path="/buyer-login" exact component={BuyerLogin} />
               <Route path="/buyer-Signup" exact component={BuyerSignup} />
               <Route path="/login-Signup" exact component={LoginSignup} />
-              <Route path="/menu" exact component={Menu} />
+              <Route path="/menu/:id" exact component={Menu} />
               <Route
                 exact
                 path="/vendor-dashboard"

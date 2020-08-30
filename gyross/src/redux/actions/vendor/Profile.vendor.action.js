@@ -4,6 +4,7 @@ export const profileType = {
   FETCH_PROFILE_START: "FETCH_PROFILE_START",
   FETCH_PROFILE_SUCCESS: "FETCH_PROFILE_SUCCESS",
   FETCH_PROFILE_FAILURE: "FETCH_PROFILE_FAILURE",
+  FETCH_MENUS: "FETCH_MENUS",
 };
 
 export const fetchProfileStart = () => ({
@@ -15,12 +16,17 @@ export const fetchProfileSuccess = (success) => ({
   payload: success,
 });
 
+export const fetchMenuSuccess = (success) => ({
+  type: profileType.FETCH_MENUS,
+  payload: success,
+});
+
 export const fetchProfileFailure = (err) => ({
   type: profileType.FETCH_PROFILE_FAILURE,
   payload: err,
 });
 
-export const fetchProfileAsync = (token) => async (dispatch) => {
+export const fetchProfileAsync = () => async (dispatch) => {
   dispatch(fetchProfileStart());
   try {
     let token = localStorage.getItem("token");
@@ -34,5 +40,21 @@ export const fetchProfileAsync = (token) => async (dispatch) => {
     }
   } catch (err) {
     dispatch(fetchProfileFailure(err));
+  }
+};
+
+export const getMenus = (name) => async (dispatch) => {
+  try {
+    let id = name.toLowerCase();
+    const url = `${process.env.REACT_APP_Heroku_Api}/vendors/${id}/info`;
+    const data = await axios
+      .get(url)
+      .then((res) => res.data)
+      .then((data) => data.menu);
+    if (data) {
+      dispatch(fetchMenuSuccess(data));
+    }
+  } catch (err) {
+    return { payload: err };
   }
 };

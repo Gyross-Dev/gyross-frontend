@@ -7,7 +7,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
-
+import { Link } from "react-router-dom";
 import mapStyle from "./map.style";
 import { fetchNameLocationAsync } from "../redux/actions/vendor/Name-Location.action";
 
@@ -73,9 +73,17 @@ class MapContainer extends Component {
                   >
                     {this.state.store.name}
                   </h2>
-                  <a href="menu">Menu</a>
+                  <Link
+                    to={`menu/${this.state.store.name.split(" ").join("")}`}
+                  >
+                    Menu
+                  </Link>
                   <span> | </span>
-                  <a href="menu">Order Now</a>
+                  <Link
+                    to={`menu/${this.state.store.name.split(" ").join("")}`}
+                  >
+                    Order Now
+                  </Link>
                 </div>
               </InfoWindow>
             )}

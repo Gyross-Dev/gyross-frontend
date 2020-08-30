@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import Mapped from "./mapped/Mapped";
+import { connect } from "react-redux";
+import { getMenus } from "../../redux/actions/vendor/Profile.vendor.action";
 
 class Menus extends Component {
   state = {
     menu: null,
   };
   componentDidMount() {
-    this.setState({ menu: menu });
+    this.setState({ menu: this.props.menu });
+    const id = this.props.match.params.id;
+    this.props.getMenus(id);
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.menu !== this.props.menu) {
+      this.setState({ menu: this.props.menu });
+    }
   }
 
   render() {
@@ -30,47 +39,10 @@ class Menus extends Component {
   }
 }
 
-export default Menus;
-
-const menu = {
-  breakfast: {
-    tea: {
-      price: 2,
-    },
-    coffee: {
-      price: 1,
-    },
-  },
-  lunch: {
-    "chicken over rice": {
-      price: 5,
-    },
-  },
-  dinner: {
-    "salmon over rice": {
-      price: 10,
-    },
-    "combo over rice": {
-      price: 7,
-    },
-  },
-  soda: {
-    "diet coke": {
-      price: 1,
-    },
-    coke: {
-      price: 1,
-    },
-    "ginger ale": {
-      price: 1,
-    },
-    pepsi: {
-      price: 1,
-    },
-  },
-  sauce: {
-    "green sauce": "",
-    "hot sauce": "",
-    "white sauce": "",
-  },
-};
+const mapDispatchToProps = (dispatch) => ({
+  getMenus: (id) => dispatch(getMenus(id)),
+});
+const mapStateToProps = (state) => ({
+  menu: state.vendorProfile.menu,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Menus);
