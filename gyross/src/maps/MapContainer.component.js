@@ -31,7 +31,6 @@ class MapContainer extends Component {
     }
   }
   handleToggle = (index, curStore) => {
-    console.log(curStore);
     this.setState({
       isOpen: !false,
       index: index,
@@ -44,18 +43,14 @@ class MapContainer extends Component {
   displayMarkers = () => {
     if (this.state.nameLocation.data) {
       return this.state.nameLocation.data.map((store, index) => {
+        let lat = store.geoLocation ? store.geoLocation._latitude : null;
+        let lng = store.geoLocation ? store.geoLocation._longitude : null;
         return (
           <div key={index}>
             <Marker
               id={index}
-              position={{
-                lat: store.geoLocation._latitude,
-                lng: store.geoLocation._longitude,
-              }}
-              label={{
-                fontFamily: "Fontawesome",
-                text: "\uf299",
-              }}
+              position={{ lat, lng }}
+              label={{ fontFamily: "Fontawesome", text: "\uf299" }}
               onClick={() => this.handleToggle(index, store)}
             />
             {this.state.isOpen && this.state.store && (
