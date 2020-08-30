@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/errorBoundary/Error-Boundary.component";
 import ContainerVendor from "./pages/dashboard/vendor/container/Container.vendor";
 import Layout from "./layout/Layout";
 import Spinner from "./components/spinner/Spinner.component";
+const Menu = lazy(() => import("./components/menus/Menus.component.js"));
 const LoginSignup = lazy(() =>
   import("./pages/login-signup/vendor/Login_Signup.vendor")
 );
@@ -40,6 +41,7 @@ class App extends React.Component {
               <Route path="/buyer-login" exact component={BuyerLogin} />
               <Route path="/buyer-Signup" exact component={BuyerSignup} />
               <Route path="/login-Signup" exact component={LoginSignup} />
+              <Route path="/menu" exact component={Menu} />
               <Route
                 exact
                 path="/vendor-dashboard"
