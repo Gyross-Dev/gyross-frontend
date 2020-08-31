@@ -43,14 +43,10 @@ export const fetchProfileAsync = () => async (dispatch) => {
   }
 };
 
-export const getMenus = (name) => async (dispatch) => {
+export const getMenus = (id) => async (dispatch) => {
   try {
-    let id = name.toLowerCase();
-    const url = `${process.env.REACT_APP_Heroku_Api}/vendors/${id}/info`;
-    const data = await axios
-      .get(url)
-      .then((res) => res.data)
-      .then((data) => data.menu);
+    const url = `${process.env.REACT_APP_Heroku_Api}/vendors/${id}/menu`;
+    const data = await axios.get(url).then((res) => res.data);
     if (data) {
       dispatch(fetchMenuSuccess(data));
     }

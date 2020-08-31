@@ -74,13 +74,17 @@ class MapContainer extends Component {
                     {this.state.store.name}
                   </h2>
                   <Link
-                    to={`menu/${this.state.store.name.split(" ").join("")}`}
+                    to={`menu/${this.state.store.name.split(" ").join("")}/${
+                      this.state.store.id
+                    }`}
                   >
                     Menu
                   </Link>
                   <span> | </span>
                   <Link
-                    to={`menu/${this.state.store.name.split(" ").join("")}`}
+                    to={`menu/${this.state.store.name.split(" ").join("")}/${
+                      this.state.store.id
+                    }`}
                   >
                     Order Now
                   </Link>
