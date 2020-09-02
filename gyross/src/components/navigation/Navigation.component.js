@@ -32,9 +32,7 @@ class Navigation extends React.Component {
     return (
       <div className="navigation-container">
         <nav>
-          <div className="nav-item">
-            <Link to="/">Home</Link>
-          </div>
+          <Link to="/">Home</Link>
           {!auth ? (
             <>
               <div className="dropdown show">
@@ -90,16 +88,9 @@ class Navigation extends React.Component {
           ) : null}
           {auth ? (
             <>
+              <Link to="/vendor-dashboard">Profile</Link>
               <div className="nav-item">
-                <Link to="/vendor-dashboard">Profile</Link>
-              </div>
-              <div className="nav-item">
-                <div
-                  className="link_div"
-                  onClick={() => this.props.logout(history)}
-                >
-                  Logout
-                </div>
+                <div onClick={() => this.props.logout(history)}>Logout</div>
               </div>
             </>
           ) : null}
