@@ -1,23 +1,23 @@
+@import "../../../../global-style/style.scss";
+
 .container-vendor {
-  min-height: 70vh;
+  // min-height: 70vh;
   display: flex;
   flex-direction: column;
+  .container-header {
+    position: fixed;
+    width: 100%;
+  }
   .container-body {
-    min-height: 70vh;
+    padding-top: 30px;
     display: flex;
-    .left-nav {
-      position: fixed;
-      color: white;
-      width: 180px;
-      min-height: 282px;
-      // top: 30vh;
-      background-color: var(--bg-dashboard);
-      box-shadow: 2px 2px 17px var(--shadow);
-    }
     .right-content {
-      padding-left: 180px;
+      padding-left: 100px;
       min-height: 70vh;
       width: 100%;
+      @media screen and (max-width: 576px) {
+        padding-left: 20px;
+      }
     }
   }
 }

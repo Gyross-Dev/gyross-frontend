@@ -5,7 +5,9 @@ const HeaderVendor = () => {
   return (
     <div className="vendor-header-container">
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/menu/update">Update Menu</Link>
+        {/* <Link to="/">Update Profile</Link> */}
+        {/* <Link to="/">tax information</Link> */}
       </nav>
     </div>
   );

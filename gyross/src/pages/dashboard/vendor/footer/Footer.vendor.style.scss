@@ -1,11 +1,13 @@
+@import "../../../../global-style/style.scss";
+
 .vendor-footer-container {
-  background-color: var(--bg-footer2);
+  background-color: $bg-footer2;
   padding: 10px;
   .footer-title {
     color: white;
     font-size: 30px;
     text-align: center;
-    font-family: var(--title-font);
+    font-family: $title-font;
     text-transform: uppercase;
     margin-bottom: 5px;
     width: 100%;

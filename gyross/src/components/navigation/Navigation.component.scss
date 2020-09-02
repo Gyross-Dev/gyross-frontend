@@ -1,3 +1,4 @@
+@import "../../global-style/style.scss";
 .navigation-container {
   height: 100%;
   width: 100%;
@@ -16,26 +17,18 @@
     .nav-item {
       flex: 1;
       text-transform: uppercase;
+      margin: 0;
+      padding: 0;
     }
     a,
     .link_div {
-      text-decoration: none;
-      padding: 5px 15px;
-      margin: 0 5px;
-      border: 1px solid #cffffe;
-      cursor: pointer;
-      background-color: var(--btn-nav-bg);
-      color: var(--btn-nav-color);
-      border-radius: 5px;
+      @include link-btn();
+    }
+    .link_div {
+      padding: 8px 15px;
       @media screen and (max-width: 576px) {
-        font-size: 12px;
-        padding: 5px 6px;
-        margin: 0 4px;
-      }
-      &:hover {
-        background: var(--btn-bg-color-hover);
-        color: var(--btn-bg-color-hover-color);
-        border: 1px solid var(--btn-bg-color-hover-border);
+        padding: 6px 15px;
+        margin-top: 5px;
       }
     }
 
@@ -49,13 +42,13 @@
         text-decoration: none;
         display: block;
         text-align: center;
-        background-color: var(--btn-nav-bg);
-        color: var(--btn-nav-color);
-        border: 1px solid var(--btn-nav-color);
+        background-color: $btn-bg;
+        color: $btn-color;
+        border: 1px solid $btn-color;
         border-radius: 0;
         &:hover {
-          background: var(--btn-bg-color-hover);
-          color: var(--btn-bg-color-hover-border);
+          background: $btn-bg-hover;
+          color: $btn-border-hover;
         }
 
         @media screen and (max-width: 576px) {

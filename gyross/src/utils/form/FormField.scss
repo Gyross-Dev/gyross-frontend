@@ -1,3 +1,5 @@
+@import "../../global-style/style.scss";
+
 $sub-color: rgb(41, 6, 49);
 $main-color: black;
 @mixin shrinkLabel {
@@ -16,7 +18,7 @@ $main-color: black;
 }
 
 .error_label {
-  color: var(--warning);
+  color: $warning;
   display: block;
   font-size: 11px;
   @media screen and (max-width: 576px) {

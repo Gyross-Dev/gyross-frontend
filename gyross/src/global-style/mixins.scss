@@ -5,9 +5,9 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 @mixin box-shadow-bottom {
-  -moz-box-shadow: 0 4px 2px -2px grey;
-  -webkit-box-shadow: 0 4px 2px -2px grey;
-  box-shadow: 0 4px 2px -2px grey;
+  -moz-box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
+  -webkit-box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
+  box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
 }
 @mixin btn-hover-radius {
   border-radius: 5px;
@@ -16,5 +16,26 @@
     background-color: rgb(89, 77, 141);
     cursor: pointer;
     border: 1px solid rgb(255, 255, 255);
+  }
+}
+
+@mixin link-btn {
+  text-decoration: none;
+  padding: 7px 15px;
+  margin: 0 5px;
+  border: 1px solid $btn-border;
+  cursor: pointer;
+  background-color: $btn-bg;
+  color: $btn-color;
+  border-radius: 5px;
+  @media screen and (max-width: 576px) {
+    font-size: 12px;
+    padding: 5px 15px;
+    margin: 2px 4px;
+  }
+  &:hover {
+    background: $btn-bg-hover;
+    color: $btn-color-hover;
+    border: 1px solid $btn-border-hover;
   }
 }

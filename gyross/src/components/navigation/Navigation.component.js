@@ -33,14 +33,14 @@ class Navigation extends React.Component {
       <div className="navigation-container">
         <nav>
           <div className="nav-item">
-            <Link to="/">Home </Link>
+            <Link to="/">Home</Link>
           </div>
           {!auth ? (
             <>
               <div className="dropdown show">
                 <div
                   to="/"
-                  className="nav-item dropdown-toggle link_div"
+                  className="nav-item dropdown-toggle"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -61,7 +61,7 @@ class Navigation extends React.Component {
                   </Link>
                 </div>
               </div>
-              <div className="dropdown show link_div">
+              <div className="dropdown show">
                 <div
                   to="/"
                   className="nav-item dropdown-toggle"

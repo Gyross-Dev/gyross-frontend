@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LeftNav from "../left-nav/LeftNav.vendor";
+// import LeftNav from "../left-nav/LeftNav.vendor";
 import HeaderVendor from "../header/Header.vendor";
 import Profile from "../profile/Profile.vendor";
 
@@ -15,9 +15,9 @@ class ContainerVendor extends Component {
           <HeaderVendor />
         </div>
         <div className="container-body">
-          <div className="left-nav">
+          {/* <div className="left-nav">
             <LeftNav />
-          </div>
+          </div> */}
           <div className="right-content">
             <Profile />
           </div>

@@ -11,7 +11,7 @@
     box-shadow: 0px 0px 10px rgb(26, 68, 102);
     .submit_error_label {
       width: 100%;
-      color: var(--warning);
+      color: $warning;
       margin-bottom: 10px;
       font-size: 14px;
       text-align: center;
