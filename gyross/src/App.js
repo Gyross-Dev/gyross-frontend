@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
 import ErrorBoundary from "./components/errorBoundary/Error-Boundary.component";
-import ContainerVendor from "./pages/dashboard/vendor/container/Container.vendor";
+import VendorDashboard from "./pages/dashboard/vendor/container/Container.vendor";
 import Layout from "./layout/Layout";
 import Spinner from "./components/spinner/Spinner.component";
+import Auth from "./hoc/Auth";
 const Menu = lazy(() => import("./components/menus/Menus.component.js"));
 const LoginSignup = lazy(() =>
   import("./pages/login-signup/vendor/Login_Signup.vendor")
@@ -45,7 +46,7 @@ class App extends React.Component {
               <Route
                 exact
                 path="/vendor-dashboard"
-                component={ContainerVendor}
+                component={Auth(VendorDashboard, "vendor")}
               />
             </Suspense>
           </ErrorBoundary>
