@@ -17,9 +17,10 @@
     text-transform: uppercase;
     font-weight: 800;
     margin-bottom: 20px;
+    color: $bg-menu;
     @include box-shadow-bottom();
   }
-  .menu-box {
+  .category {
     @include box-shadow();
     max-width: 1200px;
     background-color: $bg-menu;
@@ -27,33 +28,32 @@
     width: 400px;
     margin: 10px;
     text-transform: uppercase;
-    .menu-category {
-      height: 20px;
-      margin-top: 10px;
-      text-align: center;
+    .category-container {
       text-transform: uppercase;
       font-weight: bold;
-      color: $bg-menu-category;
+      color: rgb(99, 70, 70);
+      .category-title {
+        padding: 5px;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+        margin: 5px auto;
+        color: $bg-menu-color;
+      }
+
+      .category-card {
+        width: 100%;
+        background: $bg-menu-category;
+        padding: 10px 15px;
+        .category-items {
+          display: flex;
+          justify-content: space-between;
+          .item {
+            font-size: 14px;
+            padding: 7px;
+          }
+        }
+      }
     }
   }
-}
-.item-container {
-  padding: 10px;
-  background-color: $bg-menu-category;
-  width: 100%;
-  height: calc(100% - 40px);
-  margin: 10px auto;
-}
-.item {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: $bg-menu;
-  margin: 10px 0;
-  font-weight: 600;
-}
-
-.price {
-  font-weight: 800;
-  font-size: 15px;
 }
