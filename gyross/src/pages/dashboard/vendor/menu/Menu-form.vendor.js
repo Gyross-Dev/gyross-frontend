@@ -43,7 +43,6 @@ class MenuForm extends React.Component {
 
   render() {
     let { menu } = this.state;
-    console.log(this.state.menu);
     return (
       <>
         {menu
