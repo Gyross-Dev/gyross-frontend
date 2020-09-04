@@ -8,6 +8,10 @@ import Layout from "./layout/Layout";
 import Spinner from "./components/spinner/Spinner.component";
 import Auth from "./hoc/Auth";
 const Menu = lazy(() => import("./components/menus/Menus.component.js"));
+const MenuForm = lazy(() =>
+  import("./pages/dashboard/vendor/menu/Menu-form.vendor.js")
+);
+
 const LoginSignup = lazy(() =>
   import("./pages/login-signup/vendor/Login_Signup.vendor")
 );
@@ -43,6 +47,7 @@ class App extends React.Component {
               <Route path="/buyer-Signup" exact component={BuyerSignup} />
               <Route path="/login-Signup" exact component={LoginSignup} />
               <Route path="/menu/:name/:id" exact component={Menu} />
+              <Route path="/menu/form" exact component={MenuForm} />
               <Route
                 exact
                 path="/vendor-dashboard"

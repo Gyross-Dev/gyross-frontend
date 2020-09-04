@@ -1,0 +1,53 @@
+@import "../../../../global-style/style.scss";
+
+.update-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .category-title {
+    font-size: 30px;
+    margin: 15px auto 5px auto;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    .input-container {
+      display: flex;
+      @media screen and (max-width: 576px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        @include box-shadow-bottom();
+        // border-bottom: 1px solid rgb(86, 109, 186);
+        justify-content: center;
+      }
+      .input-item {
+        @include input-box();
+      }
+      .input-item.category {
+        padding-top: 20px;
+        width: 100%;
+        @media screen and (max-width: 576px) {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .btn-submit {
+    @include link-btn();
+    height: 30px;
+    margin-top: 40px;
+  }
+}

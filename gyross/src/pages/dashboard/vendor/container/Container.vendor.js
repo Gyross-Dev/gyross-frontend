@@ -15,9 +15,6 @@ class ContainerVendor extends Component {
           <HeaderVendor />
         </div>
         <div className="container-body">
-          {/* <div className="left-nav">
-            <LeftNav />
-          </div> */}
           <div className="right-content">
             <Profile />
           </div>
