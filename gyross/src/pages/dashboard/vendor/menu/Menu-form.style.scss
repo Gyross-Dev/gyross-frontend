@@ -12,27 +12,43 @@
   .form-container {
     display: flex;
     flex-direction: column;
-    .input-container {
-      display: flex;
-      @media screen and (max-width: 576px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        @include box-shadow-bottom();
-        // border-bottom: 1px solid rgb(86, 109, 186);
-        justify-content: center;
-      }
-      .input-item {
-        @include input-box();
-      }
-      .input-item.category {
-        padding-top: 20px;
-        width: 100%;
-        @media screen and (max-width: 576px) {
-          width: 50%;
-        }
-      }
+    @include box-shadow();
+    width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    @media screen and (max-width: 576px) {
+      width: 400px;
     }
   }
+}
+.input-container {
+  display: flex;
+  &.section {
+    justify-content: center;
+  }
+  @media screen and (max-width: 576px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .input-item {
+    @include input-box();
+  }
+  .input-item.category {
+    padding-top: 20px;
+    width: 100%;
+    @media screen and (max-width: 576px) {
+      width: 50%;
+    }
+  }
+}
+
+.error-msg {
+  display: flex;
+  color: red;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 20px;
 }
 
 .btn-box {

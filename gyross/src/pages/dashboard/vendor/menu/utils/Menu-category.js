@@ -29,7 +29,7 @@ const MenuCategory = ({ handleInputChange, removeField, item, items }) => {
               className="btn-submit"
               onClick={(e) => removeField(item, idx, e)}
             >
-              remove this field
+              Remove
             </button>
           ) : null}
         </div>

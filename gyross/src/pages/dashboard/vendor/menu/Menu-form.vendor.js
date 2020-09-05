@@ -11,6 +11,7 @@ class MenuForm extends React.Component {
       Soda: [{ name: "", price: "" }],
     },
     category: "",
+    error: "",
   };
 
   addNewField = (e, item) => {
@@ -19,6 +20,20 @@ class MenuForm extends React.Component {
     this.setState({
       menu: { ...this.state.menu, ...this.state.menu[item].push(newField) },
     });
+  };
+  addNewSection = (e) => {
+    e.preventDefault();
+    let newSection = {};
+    if (this.state.category.length > 3) {
+      newSection[this.state.category] = [{ name: "", price: "" }];
+      this.setState({
+        menu: { ...this.state.menu, ...newSection },
+        category: "",
+        error: "",
+      });
+    } else {
+      this.setState({ error: "Please Give Section a Name" });
+    }
   };
 
   removeField = (item, index, e) => {
@@ -37,12 +52,19 @@ class MenuForm extends React.Component {
   handleInputChange = (e, item, index) => {
     e.preventDefault();
     const { name, value } = e.target;
-    let menu = this.state.menu;
-    this.setState({ ...this.state.menu, ...(menu[item][index][name] = value) });
+    if (name === "category") {
+      this.setState({ ...this.state.category, category: value });
+    } else {
+      let menu = this.state.menu;
+      this.setState({
+        ...this.state.menu,
+        ...(menu[item][index][name] = value),
+      });
+    }
   };
 
   render() {
-    let { menu } = this.state;
+    let { menu, category } = this.state;
     return (
       <>
         {menu
@@ -52,15 +74,9 @@ class MenuForm extends React.Component {
                   <form className="form-container" onSubmit={this.handleSubmit}>
                     <div className="input-container">
                       <div className="input-item category">
-                        <label className="category-title" htmlFor="name">
+                        <div className="category-title" htmlFor="name">
                           {item}
-                        </label>
-                        {/* <input
-                          type="text"
-                          name="category"
-                          value={category}
-                          onChange={this.handleInputChange}
-                        /> */}
+                        </div>
                       </div>
                     </div>
                     <div>
@@ -84,6 +100,32 @@ class MenuForm extends React.Component {
               );
             })
           : null}
+
+        <form className="form-container" onSubmit={this.addNewSection}>
+          <div className="input-container section">
+            <div className="input-item">
+              <label htmlFor="name">New Section</label>
+              <input
+                type="text"
+                name="category"
+                value={category}
+                onChange={(e) => this.handleInputChange(e)}
+              />
+            </div>
+            <div className="input-item">
+              {this.state.error ? (
+                <div className="error-msg">{this.state.error} </div>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="btn-box">
+            <button className="btn-submit" type="submit">
+              add a new section
+            </button>
+          </div>
+        </form>
+
         <div className="btn-box">
           <button className="btn-submit" type="submit">
             Submit | Update
