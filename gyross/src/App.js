@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
+import Quickmenu from "./pages/learn-more/learnmore";
 import ErrorBoundary from "./components/errorBoundary/Error-Boundary.component";
 import VendorDashboard from "./pages/dashboard/vendor/container/Container.vendor";
 import Layout from "./layout/Layout";
@@ -45,6 +46,7 @@ class App extends React.Component {
               <Route path="/vendor-signup" exact component={VendorSignup} />
               <Route path="/buyer-login" exact component={BuyerLogin} />
               <Route path="/buyer-Signup" exact component={BuyerSignup} />
+              <Route path="/learnmore" exact component={Quickmenu} />
               <Route path="/login-Signup" exact component={LoginSignup} />
               <Route path="/menu/:name/:id" exact component={Menu} />
               <Route

@@ -1,5 +1,5 @@
 import React from "react";
-import FormButton from "../utils/buttons/FormButtons";
+import { Link } from "react-router-dom";
 import CustomCarousel from "../utils/carousel/Carousel";
 import MapWrapper from "../maps/MapContainer.component";
 import Companies from "./companies/Companies";
@@ -45,7 +45,7 @@ const BodyContainer = () => {
             about cash.
           </p>
           <div className="learn-more">
-            <FormButton>Learn more</FormButton>
+            <Link to="/learnmore">Learn more</Link>
           </div>
         </div>
       </div>
