@@ -47,7 +47,11 @@ class App extends React.Component {
               <Route path="/buyer-Signup" exact component={BuyerSignup} />
               <Route path="/login-Signup" exact component={LoginSignup} />
               <Route path="/menu/:name/:id" exact component={Menu} />
-              <Route path="/menu/form" exact component={MenuForm} />
+              <Route
+                path="/menu/form"
+                exact
+                component={Auth(MenuForm, "vendor")}
+              />
               <Route
                 exact
                 path="/vendor-dashboard"

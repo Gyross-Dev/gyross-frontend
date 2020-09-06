@@ -1,28 +1,11 @@
 import React from "react";
-
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { fetchProfileAsync } from "../../../../redux/actions/vendor/Profile.vendor.action";
 import "./Profile.vendor.style.scss";
+
 class ProfileVendor extends React.Component {
-  state = {
-    data: {},
-  };
-  componentDidMount() {
-    this.props.fetchProfileAsync();
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.vendorProfile !== this.props.vendorProfile) {
-      this.setState({
-        data: this.props.vendorProfile.data,
-      });
-    }
-  }
   render() {
-    if (this.state.data) {
-      var { name, phone, email, geoLocation } = this.state.data;
+    if (this.props.profile) {
+      var { name, phone, email, geoLocation } = this.props.profile;
     }
-    // password,menu, username,
     return (
       <div className="profile-container">
         <div className="title">
@@ -88,16 +71,4 @@ class ProfileVendor extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => ({
-  vendorProfile: state.vendorProfile,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchProfileAsync: () => dispatch(fetchProfileAsync()),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(ProfileVendor));
+export default ProfileVendor;

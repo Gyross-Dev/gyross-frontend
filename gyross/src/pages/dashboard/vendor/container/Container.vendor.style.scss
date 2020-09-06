@@ -9,14 +9,14 @@
     width: 100%;
   }
   .container-body {
-    padding-top: 30px;
+    padding-top: 80px;
     display: flex;
     .right-content {
-      padding-left: 100px;
+      padding: 10px 20px;
       min-height: 70vh;
       width: 100%;
       @media screen and (max-width: 576px) {
-        padding-left: 20px;
+        padding: 10px;
       }
     }
   }

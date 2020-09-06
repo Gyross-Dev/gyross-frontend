@@ -28,7 +28,8 @@ footer .logo {
 }
 footer .wrapper {
   display: flex;
-  color: #c1b3d3;
+  // color: #c1b3d3;
+  color: $footer-color;
   padding: 5px 10px;
 }
 @media screen and (max-width: 800px) {

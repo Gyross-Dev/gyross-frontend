@@ -5,9 +5,9 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 @mixin box-shadow-bottom {
-  -moz-box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
-  -webkit-box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
-  box-shadow: 0 4px 3px -4px rgb(190, 155, 219);
+  -moz-box-shadow: 0 4px 3px 1px rgb(190, 155, 219);
+  -webkit-box-shadow: 0 4px 3px 1px rgb(190, 155, 219);
+  box-shadow: 0 0px 3px 1px rgb(190, 155, 219);
 }
 @mixin btn-hover-radius {
   border-radius: 5px;
@@ -22,7 +22,7 @@
 @mixin link-btn {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 7px 15px;
+  padding: 10px 15px;
   margin: 0 5px;
   border: 1px solid $btn-border;
   cursor: pointer;

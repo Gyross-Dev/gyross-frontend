@@ -1,18 +1,18 @@
 import React from "react";
 import CategoryInput from "./utils/Menu-category";
 import "./Menu-form.style.scss";
-
+import { connect } from "react-redux";
 class MenuForm extends React.Component {
   state = {
-    menu: {
-      Breakfast: [{ name: "", price: "" }],
-      Lunch: [{ name: "", price: "" }],
-      Dinner: [{ name: "", price: "" }],
-      Soda: [{ name: "", price: "" }],
-    },
+    menu: {},
     category: "",
     error: "",
   };
+  componentDidMount() {
+    if (this.props.menu) {
+      this.setState({ menu: this.props.menu });
+    }
+  }
 
   addNewField = (e, item) => {
     e.preventDefault();
@@ -21,6 +21,7 @@ class MenuForm extends React.Component {
       menu: { ...this.state.menu, ...this.state.menu[item].push(newField) },
     });
   };
+
   addNewSection = (e) => {
     e.preventDefault();
     let newSection = {};
@@ -135,4 +136,9 @@ class MenuForm extends React.Component {
     );
   }
 }
-export default MenuForm;
+
+const mapStateToProps = (state) => ({
+  menu: state.vendorProfile.data.menu,
+});
+
+export default connect(mapStateToProps)(MenuForm);

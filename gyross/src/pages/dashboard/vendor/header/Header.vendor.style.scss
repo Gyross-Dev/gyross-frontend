@@ -2,6 +2,9 @@
 
 .vendor-header-container {
   padding: 10px;
+  z-index: 1000;
+  padding: 15px;
+  background-color: $bg-header2;
   @include box-shadow-bottom();
   nav {
     width: 100%;
@@ -9,6 +12,9 @@
     justify-content: flex-end;
     a {
       @include link-btn();
+    }
+    @media screen and(max-width: 576px) {
+      justify-content: center;
     }
   }
 }
