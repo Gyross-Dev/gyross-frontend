@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CustomCarousel from "../utils/carousel/Carousel";
 import MapWrapper from "../maps/MapContainer.component";
 import Companies from "./companies/Companies";
@@ -45,7 +45,7 @@ const BodyContainer = () => {
             about cash.
           </p>
           <div className="learn-more">
-            <Link to="/learnmore">Learn more</Link>
+            <NavLink to="/learnmore">Learn more...</NavLink>
           </div>
         </div>
       </div>
